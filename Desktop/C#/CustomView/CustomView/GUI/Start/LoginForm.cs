@@ -21,44 +21,6 @@ namespace GUI.Start
             Application.Exit();
         }
 
-        private void UserNameTextBox_Enter(object sender, System.EventArgs e)
-        {
-            if(UserNameTextBox.Text.Equals("USUARIO"))
-            {
-                UserNameTextBox.Text = "";
-                UserNameTextBox.ForeColor = System.Drawing.Color.LightGray;
-            }
-        }
-
-        private void UserNameTextBox_Leave(object sender, System.EventArgs e)
-        {
-            if (UserNameTextBox.Text.Equals(""))
-            {
-                UserNameTextBox.Text = "USUARIO";
-                UserNameTextBox.ForeColor = System.Drawing.Color.DimGray;
-            }
-        }
-
-        private void PasswordTextBox_Enter(object sender, System.EventArgs e)
-        {
-            if (PasswordTextBox.Text.Equals("CONTRASEÑA"))
-            {
-                PasswordTextBox.Text = "";
-                PasswordTextBox.ForeColor = System.Drawing.Color.LightGray;
-                PasswordTextBox.UseSystemPasswordChar = true;
-            }
-        }
-
-        private void PasswordTextBox_Leave(object sender, System.EventArgs e)
-        {
-            if (PasswordTextBox.Text.Equals(""))
-            {
-                PasswordTextBox.Text = "CONTRASEÑA";
-                PasswordTextBox.ForeColor = System.Drawing.Color.DimGray;
-                PasswordTextBox.UseSystemPasswordChar = false;
-            }
-        }
-
         private void LoginButton_Click(object sender, System.EventArgs e)
         {
             if (UserNameTextBox.Text.Length > 0 && UserNameTextBox.ForeColor == System.Drawing.Color.LightGray)

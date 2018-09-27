@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaginableDataGrid<>));
+            System.ComponentModel.ComponentResourceManager resources = new Util.CustomComponentResourceManager(typeof(PaginableDataGrid<>), "PaginableDataGrid");
             this.MainLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.MainToolStrip = new System.Windows.Forms.ToolStrip();
             this.FirstToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -290,18 +290,18 @@
         private System.Windows.Forms.ToolStripButton NextToolStripButton;
         private System.Windows.Forms.ToolStripButton LastToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton ReloadToolStripButton;
+        public System.Windows.Forms.ToolStripButton ReloadToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton AddToolStripButton;
-        private System.Windows.Forms.ToolStripButton EditToolStripButton;
-        private System.Windows.Forms.ToolStripButton DeleteToolStripButton;
-        private System.Windows.Forms.ToolStripButton ReactivateToolStripButton;
+        public System.Windows.Forms.ToolStripButton AddToolStripButton;
+        public System.Windows.Forms.ToolStripButton EditToolStripButton;
+        public System.Windows.Forms.ToolStripButton DeleteToolStripButton;
+        public System.Windows.Forms.ToolStripButton ReactivateToolStripButton;
         private System.Windows.Forms.ToolStripComboBox StatusToolStripComboBox;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripLabel RowCountToolStripLabel;
-        private System.Windows.Forms.DataGridView Grid;
         private System.Windows.Forms.ToolStripLabel RowsByPageToolStripLabel;
         private System.Windows.Forms.ToolStripComboBox PageSizeToolStripComboBox;
         private System.Windows.Forms.ToolStripButton ExportToolStripButton;
+        public System.Windows.Forms.DataGridView Grid;
     }
 }

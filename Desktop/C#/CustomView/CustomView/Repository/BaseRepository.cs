@@ -61,9 +61,9 @@ namespace Repository
             return result;
         }
 
-        public virtual List<T> findDuplicate(T t)
+        public virtual Entity.Exceptions.DuplicatedExceptionResult<T> findDuplicate(T t)
         {
-            return new List<T>();
+            return new Entity.Exceptions.DuplicatedExceptionResult<T>();
         }
 
         public IQueryable<T> findAll(ApplicationContext ApplicationContext, bool Active)
@@ -103,7 +103,7 @@ namespace Repository
 
         public void Update(T t)
         {
-            if (findDuplicate(t).Count == 0)
+            if (findDuplicate(t).DuplicatedItems.Count == 0)
             {
                 try
                 {
@@ -169,7 +169,7 @@ namespace Repository
 
         public T save(T t)
         {
-            if (findDuplicate(t).Count == 0)
+            if (findDuplicate(t).DuplicatedItems.Count == 0)
             {
                 try
                 {

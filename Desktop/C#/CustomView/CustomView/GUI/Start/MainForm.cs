@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GUI.Start
@@ -15,6 +17,8 @@ namespace GUI.Start
                                             CustomView.Program.Security.Session.User.Username.ToUpper(),
                                             CustomView.Program.Security.Session.User.Employee.FullName.ToUpper());
             LastConnectionLabel.Text = CustomView.Program.Security.Session.User.LastAccess.Value.ToString("dd/MM/yyyy HH:mm");
+
+            LoadPermissions();
         }
 
         private void ClosePictureBox_Click(object sender, EventArgs e)
@@ -45,13 +49,46 @@ namespace GUI.Start
         {
             MenuPanel.Width = MenuPanel.Width == 250 ? 60 : 250;
         }
-        
-        private void BoxButton_Click(object sender, EventArgs e)
+
+        private void LoadPermissions()
         {
-            CustomControls.BaseForm f = new CustomControls.BaseForm();
-            f.MdiParent = this;
-            f.Refresh();
-            f.Visible = true;
+            using (Repository.Auth.SystemUserMenuPermissionRepository SystemUserMenuPermissionRepository =
+                                                                        new Repository.Auth.SystemUserMenuPermissionRepository())
+            using (Repository.Auth.SystemMenuRepository SystemMenuRepository = new Repository.Auth.SystemMenuRepository())
+            {
+                List<Entity.Auth.SystemUserMenuPermission> Permissions = 
+                                SystemUserMenuPermissionRepository.ListByUser(CustomView.Program.Security.Session.User).ToList();
+                List<CustomView.GUI.CustomControls.MenuButton> Buttons = new List<CustomView.GUI.CustomControls.MenuButton>();
+                Dictionary<String, CustomView.GUI.CustomControls.MenuButton> Menus = new Dictionary<string, CustomView.GUI.CustomControls.MenuButton>();
+                CustomView.GUI.CustomControls.MenuButton CurrentMenuButton;
+                foreach (var Control in MenuPanel.Controls)
+                {
+                    if (Control is CustomView.GUI.CustomControls.MenuButton)
+                    {
+                        CurrentMenuButton = (CustomView.GUI.CustomControls.MenuButton)Control;
+                        Menus.Add(CurrentMenuButton.EntityName, CurrentMenuButton);
+                    }
+                }
+                foreach (var Permission in Permissions)
+                {
+                    if(Menus.ContainsKey(Permission.SystemMenu.Name))
+                    {
+                        Menus[Permission.SystemMenu.Name].Enabled = Permission.Allow;
+                    }
+                }
+            }
+        }
+        
+        private void LoadForm(CustomControls.BaseForm Form)
+        {
+            Form.MdiParent = this;
+            Form.Refresh();
+            Form.Visible = true;
+        }
+
+        private void CoolersButton_Click(object sender, EventArgs e)
+        {
+            LoadForm(new View.CoolerView.CoolerListForm());
         }
     }
 }

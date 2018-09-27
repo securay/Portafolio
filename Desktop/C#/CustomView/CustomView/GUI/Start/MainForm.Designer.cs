@@ -30,57 +30,40 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MenuPanel = new System.Windows.Forms.Panel();
-            this.BoxButton = new System.Windows.Forms.Button();
             this.LogoPictureBox = new System.Windows.Forms.PictureBox();
             this.HeadPanel = new System.Windows.Forms.Panel();
+            this.LastConnectionLabel = new System.Windows.Forms.Label();
+            this.UserLabel = new System.Windows.Forms.Label();
+            this.TimePictureBox = new System.Windows.Forms.PictureBox();
+            this.UserPictureBox = new System.Windows.Forms.PictureBox();
             this.MenuPictureBox = new System.Windows.Forms.PictureBox();
             this.MaximizePictureBox = new System.Windows.Forms.PictureBox();
             this.RestorePictureBox = new System.Windows.Forms.PictureBox();
             this.MinimizePictureBox = new System.Windows.Forms.PictureBox();
             this.ClosePictureBox = new System.Windows.Forms.PictureBox();
-            this.UserPictureBox = new System.Windows.Forms.PictureBox();
-            this.TimePictureBox = new System.Windows.Forms.PictureBox();
-            this.UserLabel = new System.Windows.Forms.Label();
-            this.LastConnectionLabel = new System.Windows.Forms.Label();
+            this.CoolersButton = new CustomView.GUI.CustomControls.MenuButton();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.HeadPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TimePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MenuPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaximizePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RestorePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClosePictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TimePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuPanel
             // 
             this.MenuPanel.BackColor = System.Drawing.Color.DodgerBlue;
-            this.MenuPanel.Controls.Add(this.BoxButton);
+            this.MenuPanel.Controls.Add(this.CoolersButton);
             this.MenuPanel.Controls.Add(this.LogoPictureBox);
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Size = new System.Drawing.Size(250, 768);
             this.MenuPanel.TabIndex = 0;
-            // 
-            // BoxButton
-            // 
-            this.BoxButton.FlatAppearance.BorderSize = 0;
-            this.BoxButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.BoxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BoxButton.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BoxButton.ForeColor = System.Drawing.Color.White;
-            this.BoxButton.Image = ((System.Drawing.Image)(resources.GetObject("BoxButton.Image")));
-            this.BoxButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BoxButton.Location = new System.Drawing.Point(0, 50);
-            this.BoxButton.Name = "BoxButton";
-            this.BoxButton.Size = new System.Drawing.Size(250, 55);
-            this.BoxButton.TabIndex = 1;
-            this.BoxButton.Text = "Cooler";
-            this.BoxButton.UseVisualStyleBackColor = true;
-            this.BoxButton.Click += new System.EventHandler(this.BoxButton_Click);
             // 
             // LogoPictureBox
             // 
@@ -107,6 +90,46 @@
             this.HeadPanel.Name = "HeadPanel";
             this.HeadPanel.Size = new System.Drawing.Size(774, 50);
             this.HeadPanel.TabIndex = 1;
+            // 
+            // LastConnectionLabel
+            // 
+            this.LastConnectionLabel.AutoSize = true;
+            this.LastConnectionLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastConnectionLabel.Location = new System.Drawing.Point(88, 30);
+            this.LastConnectionLabel.Name = "LastConnectionLabel";
+            this.LastConnectionLabel.Size = new System.Drawing.Size(125, 14);
+            this.LastConnectionLabel.TabIndex = 8;
+            this.LastConnectionLabel.Text = "18/09/2018 00:00";
+            // 
+            // UserLabel
+            // 
+            this.UserLabel.AutoSize = true;
+            this.UserLabel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserLabel.Location = new System.Drawing.Point(88, 3);
+            this.UserLabel.Name = "UserLabel";
+            this.UserLabel.Size = new System.Drawing.Size(155, 16);
+            this.UserLabel.TabIndex = 7;
+            this.UserLabel.Text = "SA / SUPER ADMIN, SA";
+            // 
+            // TimePictureBox
+            // 
+            this.TimePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("TimePictureBox.Image")));
+            this.TimePictureBox.Location = new System.Drawing.Point(62, 27);
+            this.TimePictureBox.Name = "TimePictureBox";
+            this.TimePictureBox.Size = new System.Drawing.Size(20, 20);
+            this.TimePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.TimePictureBox.TabIndex = 6;
+            this.TimePictureBox.TabStop = false;
+            // 
+            // UserPictureBox
+            // 
+            this.UserPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("UserPictureBox.Image")));
+            this.UserPictureBox.Location = new System.Drawing.Point(62, 1);
+            this.UserPictureBox.Name = "UserPictureBox";
+            this.UserPictureBox.Size = new System.Drawing.Size(20, 20);
+            this.UserPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.UserPictureBox.TabIndex = 5;
+            this.UserPictureBox.TabStop = false;
             // 
             // MenuPictureBox
             // 
@@ -163,45 +186,23 @@
             this.ClosePictureBox.TabStop = false;
             this.ClosePictureBox.Click += new System.EventHandler(this.ClosePictureBox_Click);
             // 
-            // UserPictureBox
+            // CoolersButton
             // 
-            this.UserPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("UserPictureBox.Image")));
-            this.UserPictureBox.Location = new System.Drawing.Point(62, 1);
-            this.UserPictureBox.Name = "UserPictureBox";
-            this.UserPictureBox.Size = new System.Drawing.Size(20, 20);
-            this.UserPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.UserPictureBox.TabIndex = 5;
-            this.UserPictureBox.TabStop = false;
-            // 
-            // TimePictureBox
-            // 
-            this.TimePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("TimePictureBox.Image")));
-            this.TimePictureBox.Location = new System.Drawing.Point(62, 27);
-            this.TimePictureBox.Name = "TimePictureBox";
-            this.TimePictureBox.Size = new System.Drawing.Size(20, 20);
-            this.TimePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.TimePictureBox.TabIndex = 6;
-            this.TimePictureBox.TabStop = false;
-            // 
-            // UserLabel
-            // 
-            this.UserLabel.AutoSize = true;
-            this.UserLabel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserLabel.Location = new System.Drawing.Point(88, 3);
-            this.UserLabel.Name = "UserLabel";
-            this.UserLabel.Size = new System.Drawing.Size(155, 16);
-            this.UserLabel.TabIndex = 7;
-            this.UserLabel.Text = "SA / SUPER ADMIN, SA";
-            // 
-            // LastConnectionLabel
-            // 
-            this.LastConnectionLabel.AutoSize = true;
-            this.LastConnectionLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastConnectionLabel.Location = new System.Drawing.Point(88, 30);
-            this.LastConnectionLabel.Name = "LastConnectionLabel";
-            this.LastConnectionLabel.Size = new System.Drawing.Size(125, 14);
-            this.LastConnectionLabel.TabIndex = 8;
-            this.LastConnectionLabel.Text = "18/09/2018 00:00";
+            this.CoolersButton.EntityName = "CoolerRow";
+            this.CoolersButton.FlatAppearance.BorderSize = 0;
+            this.CoolersButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.CoolersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CoolersButton.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CoolersButton.ForeColor = System.Drawing.Color.White;
+            this.CoolersButton.Image = ((System.Drawing.Image)(resources.GetObject("CoolersButton.Image")));
+            this.CoolersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CoolersButton.Location = new System.Drawing.Point(0, 56);
+            this.CoolersButton.Name = "CoolersButton";
+            this.CoolersButton.Size = new System.Drawing.Size(250, 55);
+            this.CoolersButton.TabIndex = 2;
+            this.CoolersButton.Text = "Coolers";
+            this.CoolersButton.UseVisualStyleBackColor = true;
+            this.CoolersButton.Click += new System.EventHandler(this.CoolersButton_Click);
             // 
             // MainForm
             // 
@@ -218,13 +219,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
             this.HeadPanel.ResumeLayout(false);
             this.HeadPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TimePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MenuPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaximizePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RestorePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClosePictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TimePictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -232,7 +233,6 @@
         #endregion
 
         private System.Windows.Forms.Panel MenuPanel;
-        private System.Windows.Forms.Button BoxButton;
         private System.Windows.Forms.PictureBox LogoPictureBox;
         private System.Windows.Forms.Panel HeadPanel;
         private System.Windows.Forms.PictureBox MaximizePictureBox;
@@ -244,5 +244,6 @@
         private System.Windows.Forms.Label UserLabel;
         private System.Windows.Forms.PictureBox TimePictureBox;
         private System.Windows.Forms.PictureBox UserPictureBox;
+        private CustomView.GUI.CustomControls.MenuButton CoolersButton;
     }
 }

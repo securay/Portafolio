@@ -34,11 +34,11 @@
             this.TopLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.ClosePictureBox = new System.Windows.Forms.PictureBox();
-            this.UserNameTextBox = new System.Windows.Forms.TextBox();
-            this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.line1 = new DevComponents.DotNetBar.Controls.Line();
             this.line2 = new DevComponents.DotNetBar.Controls.Line();
             this.LoginButton = new System.Windows.Forms.Button();
+            this.PasswordTextBox = new GUI.CustomControls.WaterMarkTextBox();
+            this.UserNameTextBox = new GUI.CustomControls.WaterMarkTextBox();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.TopLayoutPanel.SuspendLayout();
@@ -78,7 +78,7 @@
             this.TopLayoutPanel.Name = "TopLayoutPanel";
             this.TopLayoutPanel.RowCount = 1;
             this.TopLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TopLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TopLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.TopLayoutPanel.Size = new System.Drawing.Size(250, 30);
             this.TopLayoutPanel.TabIndex = 0;
             // 
@@ -104,38 +104,6 @@
             this.ClosePictureBox.TabIndex = 1;
             this.ClosePictureBox.TabStop = false;
             this.ClosePictureBox.Click += new System.EventHandler(this.ClosePictureBox_Click);
-            // 
-            // UserNameTextBox
-            // 
-            this.UserNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.UserNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.UserNameTextBox.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserNameTextBox.ForeColor = System.Drawing.Color.DimGray;
-            this.UserNameTextBox.Location = new System.Drawing.Point(155, 60);
-            this.UserNameTextBox.Name = "UserNameTextBox";
-            this.UserNameTextBox.Size = new System.Drawing.Size(240, 16);
-            this.UserNameTextBox.TabIndex = 0;
-            this.UserNameTextBox.Text = "USUARIO";
-            this.UserNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.UserNameTextBox.Enter += new System.EventHandler(this.UserNameTextBox_Enter);
-            this.UserNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UserNameTextBox_KeyPress);
-            this.UserNameTextBox.Leave += new System.EventHandler(this.UserNameTextBox_Leave);
-            // 
-            // PasswordTextBox
-            // 
-            this.PasswordTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.PasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PasswordTextBox.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordTextBox.ForeColor = System.Drawing.Color.DimGray;
-            this.PasswordTextBox.Location = new System.Drawing.Point(155, 104);
-            this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.Size = new System.Drawing.Size(240, 16);
-            this.PasswordTextBox.TabIndex = 1;
-            this.PasswordTextBox.Text = "CONTRASEÑA";
-            this.PasswordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.PasswordTextBox.Enter += new System.EventHandler(this.PasswordTextBox_Enter);
-            this.PasswordTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PasswordTextBox_KeyPress);
-            this.PasswordTextBox.Leave += new System.EventHandler(this.PasswordTextBox_Leave);
             // 
             // line1
             // 
@@ -172,6 +140,37 @@
             this.LoginButton.UseVisualStyleBackColor = false;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
+            // PasswordTextBox
+            // 
+            this.PasswordTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.PasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PasswordTextBox.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordTextBox.ForeColor = System.Drawing.Color.LightGray;
+            this.PasswordTextBox.Location = new System.Drawing.Point(155, 104);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.Size = new System.Drawing.Size(240, 16);
+            this.PasswordTextBox.TabIndex = 1;
+            this.PasswordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PasswordTextBox.UseSystemPasswordChar = true;
+            this.PasswordTextBox.WaterMarkColor = System.Drawing.Color.Gray;
+            this.PasswordTextBox.WaterMarkText = "CONTRASEÑA";
+            this.PasswordTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PasswordTextBox_KeyPress);
+            // 
+            // UserNameTextBox
+            // 
+            this.UserNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.UserNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.UserNameTextBox.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserNameTextBox.ForeColor = System.Drawing.Color.LightGray;
+            this.UserNameTextBox.Location = new System.Drawing.Point(155, 60);
+            this.UserNameTextBox.Name = "UserNameTextBox";
+            this.UserNameTextBox.Size = new System.Drawing.Size(240, 16);
+            this.UserNameTextBox.TabIndex = 0;
+            this.UserNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.UserNameTextBox.WaterMarkColor = System.Drawing.Color.Gray;
+            this.UserNameTextBox.WaterMarkText = "USUARIO";
+            this.UserNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UserNameTextBox_KeyPress);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,8 +206,8 @@
         private System.Windows.Forms.TableLayoutPanel TopLayoutPanel;
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.PictureBox ClosePictureBox;
-        private System.Windows.Forms.TextBox UserNameTextBox;
-        private System.Windows.Forms.TextBox PasswordTextBox;
+        private CustomControls.WaterMarkTextBox UserNameTextBox;
+        private CustomControls.WaterMarkTextBox PasswordTextBox;
         private DevComponents.DotNetBar.Controls.Line line1;
         private DevComponents.DotNetBar.Controls.Line line2;
         private System.Windows.Forms.Button LoginButton;

@@ -424,14 +424,13 @@ namespace GUI.CustomControls
             HiddenColumns = new List<string>();
             HeaderTexts = new Dictionary<string, string>();
 
-            /*
-            using (SystemMenuRepository SystemMenuRepository = new SystemMenuRepository())
-            using (SystemUserMenuPermissionRepository SystemUserMenuPermissionRepository = new SystemUserMenuPermissionRepository())
-            using (SystemUserTypeMenuPermissionRepository SystemUserTypeMenuPermissionRepository = new SystemUserTypeMenuPermissionRepository())
+            InitializeComponent();
+
+            using (Repository.Auth.SystemUserMenuPermissionRepository SystemUserMenuPermissionRepository = new Repository.Auth.SystemUserMenuPermissionRepository())
             {
-                SystemMenu SystemMenu = SystemMenuRepository.GetByName(Type.Name);
-                SystemUserMenuAccess SystemUserMenuPermission = SystemUserMenuPermissionRepository.GetAccessByUserAndMenu(CurrentValues.Security.Session.User, SystemMenu);
-                
+                Entity.Auth.SystemMenu SystemMenu = new Repository.Auth.SystemMenuRepository().GetByName(Type.Name);
+                Entity.Auth.SystemUserMenuPermission SystemUserMenuPermission = SystemUserMenuPermissionRepository.GetByUserAndMenu(CustomView.Program.Security.Session.User, SystemMenu);
+
                 EnableEntityInsert = SystemUserMenuPermission.Insert;
                 EnableEntityUpdate = SystemUserMenuPermission.Update;
                 EnableEntityDelete = SystemUserMenuPermission.Delete;
@@ -440,8 +439,7 @@ namespace GUI.CustomControls
                 EnableEntityExtra = SystemUserMenuPermission.Extras;
                 EnableEntityActivate = SystemUserMenuPermission.Activate;
             }
-            */
-            InitializeComponent();
+
             StatusToolStripComboBox.SelectedIndex = 0;
             Dock = DockStyle.Fill;
             _loaded = true;

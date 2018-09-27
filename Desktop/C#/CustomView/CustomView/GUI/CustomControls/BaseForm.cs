@@ -28,7 +28,7 @@ namespace GUI.CustomControls
                 TitleLabel.Text = value;
             }
         }
-        public Panel MainPanel
+        /*public Panel MainPanel
         {
             get
             {
@@ -38,7 +38,7 @@ namespace GUI.CustomControls
             {
                 _MainPanel = value;
             }
-        }
+        }*/
         public Authentication.Security Security { get; set; }
 
         #endregion
@@ -57,15 +57,15 @@ namespace GUI.CustomControls
 
         public BaseForm()
         {
-            DoubleBuffered = true;
             StartPosition = FormStartPosition.CenterScreen;
 
-            InitializeComponent();
             ErrorProvider = new ErrorProvider(this);
             FormClosing += new FormClosingEventHandler(BaseForm_FormClosing);
             Load += new EventHandler(BaseForm_Load);
             VisibleChanged += new EventHandler(BaseForm_VisibleChanged);
             Security = CustomView.Program.Security;
+
+            InitializeComponent();
         }
 
         public DialogResult ShowDialog(Form owner)
@@ -95,16 +95,22 @@ namespace GUI.CustomControls
 
         protected void BaseForm_Load(object sender, EventArgs e)
         {
-            foreach (Control c in this.Controls)
+            new System.Threading.Thread(() =>
             {
-                AssignAuditToButtonsRecursive(c);
-            }
+                foreach (Control c in this.Controls)
+                {
+                    AssignAuditToButtonsRecursive(c);
+                }
+            }).Start();
         }
 
         protected void BaseForm_VisibleChanged(object sender, EventArgs e)
         {
-            if (Visible && Security != null)
+            new System.Threading.Thread(() =>
+            {
+                if (Visible && Security != null)
                 Security.Audit(this, "LoadForm", "Abrir formulario");
+            }).Start();
         }
 
         public void AssignControlStylesRecursive(Control control)

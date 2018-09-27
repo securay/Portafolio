@@ -1,4 +1,5 @@
 ﻿using Entity.Auth;
+using Entity.Coolers;
 using System;
 using System.Data.Entity;
 using System.Linq;
@@ -16,7 +17,16 @@ namespace Context
         public DbSet<Employee> Employees { get; set; }
         public DbSet<FormEntity> FormEntities { get; set; }
         public DbSet<Position> Positions { get; set; }
+        public DbSet<SystemMenu> SystemMenus { get; set; }
         public DbSet<SystemUser> SystemUsers { get; set; }
+        public DbSet<SystemUserMenuPermission> SystemUserMenuPermissions { get; set; }
+
+        #endregion
+
+        #region Coolers
+
+        public DbSet<Cooler> Coolers { get; set; }
+        public DbSet<MeasureUnit> MeasureUnits { get; set; }
 
         #endregion
 
