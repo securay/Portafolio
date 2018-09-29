@@ -16,13 +16,15 @@ namespace Repository.Coolers
         {
         }
 
-        public IQueryable<MeasureUnit> FindAll(String Query, bool Active, int Take)
+        public override IQueryable<MeasureUnit> FindForComboBox(String Query, bool Active, int Take)
         {
             var res = from l in ApplicationContext.MeasureUnits
                       where (l.Name + l.Acronym).Contains(Query) &&
                             l.Active == Active
                       select l;
-            return res.Take(Take);
+            if(Take > 0)
+                return res.Take(Take);
+            return res;
         }
     }
 }

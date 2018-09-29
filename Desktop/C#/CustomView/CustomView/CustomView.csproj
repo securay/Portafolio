@@ -90,6 +90,12 @@
     <Compile Include="GUI\CustomControls\ButtonsContainer.Designer.cs">
       <DependentUpon>ButtonsContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\CustomControls\ComboBoxWaterMark.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\CustomControls\ComboBoxWaterMark.Designer.cs">
+      <DependentUpon>ComboBoxWaterMark.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\CustomControls\MenuButton.cs">
       <SubType>Component</SubType>
     </Compile>

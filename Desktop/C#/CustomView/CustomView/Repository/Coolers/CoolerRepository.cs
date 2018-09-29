@@ -39,6 +39,18 @@ namespace Repository.Coolers
             return res;
         }
 
+        public override IQueryable<Cooler> FindForComboBox(String Query, bool Active, int Take)
+        {
+            var res = from c in ApplicationContext.Coolers
+                      where (c.Barcode + c.Code + c.Capacity).Contains(Query) &&
+                            c.Active == Active
+                      orderby c.Code
+                      select c;
+            if (Take > 0)
+                return res.Take(Take);
+            return res;
+        }
+
         public override Entity.Exceptions.DuplicatedExceptionResult<Cooler> findDuplicate(Cooler Cooler)
         {
             var res_code = (from c in ApplicationContext.Coolers

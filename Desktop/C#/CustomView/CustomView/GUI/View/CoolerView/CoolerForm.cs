@@ -91,7 +91,10 @@ namespace GUI.View.CoolerView
             CodeTextBox.Text = Cooler.Code;
             BarcodeTextBox.Text = Cooler.Barcode;
             CapacityTextBox.Text = Cooler.Capacity == 0 ? "" : Cooler.Capacity.ToString("#0.00");
-            ColorTextBox.BackColor = Color.FromArgb(Cooler.Color);
+            if (Cooler.Id != Guid.Empty)
+            {
+                ColorTextBox.BackColor = Color.FromArgb(Cooler.Color);
+            }
             if(Cooler.MeasureUnit != null)
             {
                 MeasureUnitComboBox.Text = Cooler.MeasureUnit.Name;
@@ -145,7 +148,7 @@ namespace GUI.View.CoolerView
             }
             return false;
         }
-
+        /*
         private void FillMeasureUnitComboBox()
         {
             using (MeasureUnitRepository MeasureUnitRepository = new MeasureUnitRepository())
@@ -165,7 +168,7 @@ namespace GUI.View.CoolerView
                 MeasureUnitComboBox.SelectionStart = MeasureUnitComboBox.Text.Length;
             }
         }
-
+        */
         private void ColorTextBox_Click(object sender, EventArgs e)
         {
             if(ColorDialog.ShowDialog() == DialogResult.OK)

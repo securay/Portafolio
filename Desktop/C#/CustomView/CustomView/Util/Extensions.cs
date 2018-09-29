@@ -10,6 +10,7 @@ namespace Util
             object selected = ComboBox.SelectedItem;
 
             ComboBox.Items.Clear();
+
             foreach (T Item in Items)
                 ComboBox.Items.Add(Item);
 

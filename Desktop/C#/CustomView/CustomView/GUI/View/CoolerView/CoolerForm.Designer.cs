@@ -33,7 +33,8 @@
             this.BarcodeTextBox = new GUI.CustomControls.WaterMarkTextBox();
             this.ColorTextBox = new GUI.CustomControls.WaterMarkTextBox();
             this.CapacityTextBox = new GUI.CustomControls.WaterMarkTextBox();
-            this.MeasureUnitComboBox = new System.Windows.Forms.ComboBox();
+
+            this.MeasureUnitComboBox = new CustomControls.ComboBoxWaterMark<Entity.Coolers.MeasureUnit>(new Repository.Coolers.MeasureUnitRepository(), "Name", "Id");
             this.ButtonsPanel = new System.Windows.Forms.Panel();
             this.ColorDialog = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
@@ -43,8 +44,8 @@
             // MainLayoutPanel
             // 
             this.MainLayoutPanel.ColumnCount = 2;
-            this.MainLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.MainLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.MainLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.MainLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.MainLayoutPanel.Controls.Add(this.CodeTextBox, 0, 0);
             this.MainLayoutPanel.Controls.Add(this.BarcodeTextBox, 0, 2);
             this.MainLayoutPanel.Controls.Add(this.ColorTextBox, 0, 4);
@@ -64,7 +65,7 @@
             this.MainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.MainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.MainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.MainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.MainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.MainLayoutPanel.Size = new System.Drawing.Size(400, 290);
             this.MainLayoutPanel.TabIndex = 1;
             // 
@@ -132,7 +133,6 @@
             this.MeasureUnitComboBox.Size = new System.Drawing.Size(394, 22);
             this.MeasureUnitComboBox.TabIndex = 4;
             this.MeasureUnitComboBox.Text = "                                     Unidad de Medida";
-            this.MeasureUnitComboBox.TextChanged += new System.EventHandler(this.MeasureUnitComboBox_TextChanged);
             // 
             // ButtonsPanel
             // 
@@ -166,7 +166,7 @@
         private CustomControls.WaterMarkTextBox ColorTextBox;
         private System.Windows.Forms.ColorDialog ColorDialog;
         private CustomControls.WaterMarkTextBox CapacityTextBox;
-        private System.Windows.Forms.ComboBox MeasureUnitComboBox;
+        private CustomControls.ComboBoxWaterMark<Entity.Coolers.MeasureUnit> MeasureUnitComboBox;
         private System.Windows.Forms.Panel ButtonsPanel;
     }
 }

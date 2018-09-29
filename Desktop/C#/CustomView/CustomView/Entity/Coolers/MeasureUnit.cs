@@ -16,5 +16,10 @@ namespace Entity.Coolers
         [Index(IsUnique = true)]
         [MaxLength(10)]
         public String Acronym { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

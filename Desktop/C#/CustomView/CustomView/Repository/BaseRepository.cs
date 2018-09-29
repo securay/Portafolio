@@ -66,6 +66,11 @@ namespace Repository
             return new Entity.Exceptions.DuplicatedExceptionResult<T>();
         }
 
+        public virtual IQueryable<T> FindForComboBox(String Query, bool Active, int Take)
+        {
+            return new List<T>().AsQueryable();
+        }
+
         public IQueryable<T> findAll(ApplicationContext ApplicationContext, bool Active)
         {
             IQueryable<T> result = ApplicationContext.Set<T>().Where(t => t.Active == Active);
