@@ -34,9 +34,9 @@
             this.TopLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.ClosePictureBox = new System.Windows.Forms.PictureBox();
-            this.line1 = new DevComponents.DotNetBar.Controls.Line();
-            this.line2 = new DevComponents.DotNetBar.Controls.Line();
             this.LoginButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.PasswordTextBox = new GUI.CustomControls.WaterMarkTextBox();
             this.UserNameTextBox = new GUI.CustomControls.WaterMarkTextBox();
             this.LogoPanel.SuspendLayout();
@@ -105,26 +105,6 @@
             this.ClosePictureBox.TabStop = false;
             this.ClosePictureBox.Click += new System.EventHandler(this.ClosePictureBox_Click);
             // 
-            // line1
-            // 
-            this.line1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.line1.Location = new System.Drawing.Point(175, 76);
-            this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(200, 10);
-            this.line1.TabIndex = 5;
-            this.line1.Text = "line1";
-            this.line1.Thickness = 4;
-            // 
-            // line2
-            // 
-            this.line2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.line2.Location = new System.Drawing.Point(175, 119);
-            this.line2.Name = "line2";
-            this.line2.Size = new System.Drawing.Size(200, 10);
-            this.line2.TabIndex = 5;
-            this.line2.Text = "line2";
-            this.line2.Thickness = 4;
-            // 
             // LoginButton
             // 
             this.LoginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
@@ -139,6 +119,22 @@
             this.LoginButton.Text = "Iniciar Sesión";
             this.LoginButton.UseVisualStyleBackColor = false;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Location = new System.Drawing.Point(175, 119);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(200, 2);
+            this.label1.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label2.Location = new System.Drawing.Point(175, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(200, 2);
+            this.label2.TabIndex = 4;
             // 
             // PasswordTextBox
             // 
@@ -177,9 +173,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(400, 200);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.LoginButton);
-            this.Controls.Add(this.line2);
-            this.Controls.Add(this.line1);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.UserNameTextBox);
             this.Controls.Add(this.TopLayoutPanel);
@@ -208,8 +204,8 @@
         private System.Windows.Forms.PictureBox ClosePictureBox;
         private CustomControls.WaterMarkTextBox UserNameTextBox;
         private CustomControls.WaterMarkTextBox PasswordTextBox;
-        private DevComponents.DotNetBar.Controls.Line line1;
-        private DevComponents.DotNetBar.Controls.Line line2;
         private System.Windows.Forms.Button LoginButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

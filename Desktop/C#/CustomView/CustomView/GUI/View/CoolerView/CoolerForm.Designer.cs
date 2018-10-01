@@ -132,7 +132,7 @@
             this.MeasureUnitComboBox.Name = "MeasureUnitComboBox";
             this.MeasureUnitComboBox.Size = new System.Drawing.Size(394, 22);
             this.MeasureUnitComboBox.TabIndex = 4;
-            this.MeasureUnitComboBox.Text = "                                     Unidad de Medida";
+            this.MeasureUnitComboBox.Text = "Unidad de Medida";
             // 
             // ButtonsPanel
             // 
