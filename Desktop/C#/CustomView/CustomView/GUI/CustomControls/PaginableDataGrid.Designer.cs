@@ -257,6 +257,7 @@
             this.Grid.AllowUserToAddRows = false;
             this.Grid.AllowUserToDeleteRows = false;
             this.Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Grid.Location = new System.Drawing.Point(3, 3);
             this.Grid.Name = "Grid";
@@ -283,7 +284,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel MainLayoutPanel;
-        private System.Windows.Forms.ToolStrip MainToolStrip;
+        public System.Windows.Forms.ToolStrip MainToolStrip;
         private System.Windows.Forms.ToolStripButton FirstToolStripButton;
         private System.Windows.Forms.ToolStripButton PreviousToolStripButton;
         private System.Windows.Forms.ToolStripTextBox PageToolStripTextBox;

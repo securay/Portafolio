@@ -1,6 +1,6 @@
 ﻿namespace GUI.CustomControls
 {
-    partial class ComboBoxWaterMark<T>
+    partial class ComboBoxWaterMark
     {
         /// <summary> 
         /// Variable del diseñador necesaria.

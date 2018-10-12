@@ -10,7 +10,8 @@ namespace GUI.View.CoolerView
     public partial class CoolerListForm : BaseForm, Util.ILoadData
     {
         protected CoolerRepository CoolerRepository;
-        private PaginableDataGrid<Entity.Coolers.Extra.CoolerRow> PaginableDataGrid;
+        private PaginableDataGrid<CoolerRow> PaginableDataGrid;
+        private ToolStripButton GetImageButton;
         public CoolerListForm()
         {
             CoolerRepository = new CoolerRepository();
@@ -35,7 +36,9 @@ namespace GUI.View.CoolerView
             PaginableDataGrid.ReactivateToolStripButton.Click += new EventHandler(BtnActivate_Click);
             PaginableDataGrid.EditToolStripButton.Click += new EventHandler(BtnEdit_Click);
 
+
             PaginableDataGrid.Grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            PaginableDataGrid.Grid.CellFormatting += Grid_CellFormatting;
 
             PaginableDataGrid.HeaderTexts["Code"] = "Código";
             PaginableDataGrid.HeaderTexts["Barcode"] = "Barcode";
@@ -43,7 +46,32 @@ namespace GUI.View.CoolerView
             PaginableDataGrid.HeaderTexts["Capacity"] = "Capacidad";
             PaginableDataGrid.HeaderTexts["MeasureUnit"] = "Unidad de Medida";
 
+
+            GetImageButton = new ToolStripButton("", ImagePictureBox.Image, new EventHandler(BtnBarcode_Click));
+            PaginableDataGrid.MainToolStrip.Items.Add(GetImageButton);
+
             GridPanel.Controls.Add(PaginableDataGrid);
+        }
+
+        private void BtnBarcode_Click(object sender, EventArgs e)
+        {
+            if (PaginableDataGrid.SelectedEntity == null)
+            {
+                MessageDialog(Util.MessageUtil.GlobalSelectRow, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Cooler dt = CoolerRepository.findById(PaginableDataGrid.SelectedEntity.Id);
+            new BarcodeForm(dt.Barcode, dt.Code, dt.Capacity, dt.MeasureUnit.Acronym).ShowDialog();
+        }
+
+        private void Grid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if(e.ColumnIndex != PaginableDataGrid.Grid.Columns["Color"].Index) return;
+
+            System.Drawing.Color BackColor = System.Drawing.Color.FromArgb(int.Parse(e.Value.ToString()));
+            e.CellStyle.BackColor = BackColor;
+            e.CellStyle.ForeColor = BackColor;
         }
 
         public void LoadData()

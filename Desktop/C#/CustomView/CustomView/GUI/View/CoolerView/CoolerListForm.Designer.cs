@@ -33,9 +33,12 @@
             this.QueryTextBox = new System.Windows.Forms.TextBox();
             this.SearchPictureBox = new System.Windows.Forms.PictureBox();
             this.GridPanel = new System.Windows.Forms.Panel();
+            this.ImagePictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchPictureBox)).BeginInit();
+            this.GridPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImagePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -79,11 +82,22 @@
             // GridPanel
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.GridPanel, 2);
+            this.GridPanel.Controls.Add(this.ImagePictureBox);
             this.GridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridPanel.Location = new System.Drawing.Point(3, 28);
             this.GridPanel.Name = "GridPanel";
             this.GridPanel.Size = new System.Drawing.Size(694, 239);
             this.GridPanel.TabIndex = 2;
+            // 
+            // ImagePictureBox
+            // 
+            this.ImagePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("ImagePictureBox.Image")));
+            this.ImagePictureBox.Location = new System.Drawing.Point(41, 176);
+            this.ImagePictureBox.Name = "ImagePictureBox";
+            this.ImagePictureBox.Size = new System.Drawing.Size(100, 50);
+            this.ImagePictureBox.TabIndex = 0;
+            this.ImagePictureBox.TabStop = false;
+            this.ImagePictureBox.Visible = false;
             // 
             // CoolerListForm
             // 
@@ -98,6 +112,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchPictureBox)).EndInit();
+            this.GridPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ImagePictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -108,5 +124,6 @@
         private System.Windows.Forms.TextBox QueryTextBox;
         private System.Windows.Forms.PictureBox SearchPictureBox;
         private System.Windows.Forms.Panel GridPanel;
+        private System.Windows.Forms.PictureBox ImagePictureBox;
     }
 }

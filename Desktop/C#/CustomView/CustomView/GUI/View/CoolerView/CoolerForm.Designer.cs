@@ -33,9 +33,8 @@
             this.BarcodeTextBox = new GUI.CustomControls.WaterMarkTextBox();
             this.ColorTextBox = new GUI.CustomControls.WaterMarkTextBox();
             this.CapacityTextBox = new GUI.CustomControls.WaterMarkTextBox();
-
-            this.MeasureUnitComboBox = new CustomControls.ComboBoxWaterMark<Entity.Coolers.MeasureUnit>(new Repository.Coolers.MeasureUnitRepository(), "Name", "Id");
             this.ButtonsPanel = new System.Windows.Forms.Panel();
+            this.MeasureUnitComboBox = new GUI.CustomControls.ComboBoxWaterMark();
             this.ColorDialog = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.MainLayoutPanel.SuspendLayout();
@@ -50,8 +49,8 @@
             this.MainLayoutPanel.Controls.Add(this.BarcodeTextBox, 0, 2);
             this.MainLayoutPanel.Controls.Add(this.ColorTextBox, 0, 4);
             this.MainLayoutPanel.Controls.Add(this.CapacityTextBox, 0, 6);
-            this.MainLayoutPanel.Controls.Add(this.MeasureUnitComboBox, 0, 8);
             this.MainLayoutPanel.Controls.Add(this.ButtonsPanel, 1, 9);
+            this.MainLayoutPanel.Controls.Add(this.MeasureUnitComboBox, 0, 8);
             this.MainLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainLayoutPanel.Location = new System.Drawing.Point(0, 30);
             this.MainLayoutPanel.Name = "MainLayoutPanel";
@@ -87,7 +86,8 @@
             this.MainLayoutPanel.SetColumnSpan(this.BarcodeTextBox, 2);
             this.BarcodeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BarcodeTextBox.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BarcodeTextBox.Location = new System.Drawing.Point(3, 51);
+            this.BarcodeTextBox.Location = new System.Drawing.Point(3, 54);
+            this.BarcodeTextBox.MaxLength = 13;
             this.BarcodeTextBox.Name = "BarcodeTextBox";
             this.BarcodeTextBox.Size = new System.Drawing.Size(394, 22);
             this.BarcodeTextBox.TabIndex = 1;
@@ -100,7 +100,7 @@
             this.MainLayoutPanel.SetColumnSpan(this.ColorTextBox, 2);
             this.ColorTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ColorTextBox.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ColorTextBox.Location = new System.Drawing.Point(3, 99);
+            this.ColorTextBox.Location = new System.Drawing.Point(3, 105);
             this.ColorTextBox.Name = "ColorTextBox";
             this.ColorTextBox.Size = new System.Drawing.Size(394, 22);
             this.ColorTextBox.TabIndex = 2;
@@ -114,7 +114,7 @@
             this.MainLayoutPanel.SetColumnSpan(this.CapacityTextBox, 2);
             this.CapacityTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CapacityTextBox.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CapacityTextBox.Location = new System.Drawing.Point(3, 147);
+            this.CapacityTextBox.Location = new System.Drawing.Point(3, 156);
             this.CapacityTextBox.Name = "CapacityTextBox";
             this.CapacityTextBox.Size = new System.Drawing.Size(394, 22);
             this.CapacityTextBox.TabIndex = 3;
@@ -122,25 +122,27 @@
             this.CapacityTextBox.WaterMarkColor = System.Drawing.Color.Gray;
             this.CapacityTextBox.WaterMarkText = "Capacidad";
             // 
+            // ButtonsPanel
+            // 
+            this.ButtonsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ButtonsPanel.Location = new System.Drawing.Point(163, 238);
+            this.ButtonsPanel.Name = "ButtonsPanel";
+            this.ButtonsPanel.Size = new System.Drawing.Size(234, 49);
+            this.ButtonsPanel.TabIndex = 5;
+            // 
             // MeasureUnitComboBox
             // 
             this.MainLayoutPanel.SetColumnSpan(this.MeasureUnitComboBox, 2);
             this.MeasureUnitComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MeasureUnitComboBox.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MeasureUnitComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.MeasureUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MeasureUnitComboBox.FormattingEnabled = true;
-            this.MeasureUnitComboBox.Location = new System.Drawing.Point(3, 195);
+            this.MeasureUnitComboBox.Location = new System.Drawing.Point(3, 207);
             this.MeasureUnitComboBox.Name = "MeasureUnitComboBox";
-            this.MeasureUnitComboBox.Size = new System.Drawing.Size(394, 22);
-            this.MeasureUnitComboBox.TabIndex = 4;
-            this.MeasureUnitComboBox.Text = "Unidad de Medida";
-            // 
-            // ButtonsPanel
-            // 
-            this.ButtonsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ButtonsPanel.Location = new System.Drawing.Point(203, 223);
-            this.ButtonsPanel.Name = "ButtonsPanel";
-            this.ButtonsPanel.Size = new System.Drawing.Size(194, 64);
-            this.ButtonsPanel.TabIndex = 5;
+            this.MeasureUnitComboBox.QueryText = "";
+            this.MeasureUnitComboBox.Size = new System.Drawing.Size(394, 21);
+            this.MeasureUnitComboBox.TabIndex = 6;
+            this.MeasureUnitComboBox.WaterMarkText = "Unidad de Medida";
             // 
             // CoolerForm
             // 
@@ -149,7 +151,7 @@
             this.ClientSize = new System.Drawing.Size(400, 320);
             this.Controls.Add(this.MainLayoutPanel);
             this.Name = "CoolerForm";
-            this.Text = "CoolerForm";
+            this.Text = "Cooler";
             this.Controls.SetChildIndex(this.MainLayoutPanel, 0);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.MainLayoutPanel.ResumeLayout(false);
@@ -166,7 +168,7 @@
         private CustomControls.WaterMarkTextBox ColorTextBox;
         private System.Windows.Forms.ColorDialog ColorDialog;
         private CustomControls.WaterMarkTextBox CapacityTextBox;
-        private CustomControls.ComboBoxWaterMark<Entity.Coolers.MeasureUnit> MeasureUnitComboBox;
         private System.Windows.Forms.Panel ButtonsPanel;
+        private CustomControls.ComboBoxWaterMark MeasureUnitComboBox;
     }
 }

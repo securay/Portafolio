@@ -68,7 +68,8 @@ namespace Repository
 
         public virtual IQueryable<T> FindForComboBox(String Query, bool Active, int Take)
         {
-            return new List<T>().AsQueryable();
+            IQueryable<T> result = ApplicationContext.Set<T>().Where(t => t.Active == Active).Take(20);
+            return result;
         }
 
         public IQueryable<T> findAll(ApplicationContext ApplicationContext, bool Active)

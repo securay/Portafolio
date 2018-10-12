@@ -3,7 +3,6 @@ using GUI.CustomControls;
 using Repository.Coolers;
 using System;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using Util;
 
@@ -35,7 +34,6 @@ namespace GUI.View.CoolerView
             StartPosition = FormStartPosition.CenterScreen;
 
             InitializeComponent();
-            Text = "Cooler";
 
             ButtonsContainer = new ButtonsContainer();
             ButtonsContainer.Dock = DockStyle.Fill;
@@ -45,6 +43,8 @@ namespace GUI.View.CoolerView
             ButtonsPanel.Controls.Add(ButtonsContainer);
 
             CapacityTextBox.KeyPress += Util.OnlyDecimalNumbers.OnlyDecimalNumbers_KeyPress;
+            
+            MeasureUnitComboBox.Init("Name", "Id", "Unidad de Medida", FillMeasureUnitComboBox);
         }
 
         public void SaveButton_Click(object sender, EventArgs e)
@@ -89,7 +89,7 @@ namespace GUI.View.CoolerView
         protected void RefreshControls()
         {
             CodeTextBox.Text = Cooler.Code;
-            BarcodeTextBox.Text = Cooler.Barcode;
+            BarcodeTextBox.Text = Cooler.Barcode == null ? GenerateBarcode() : Cooler.Barcode;
             CapacityTextBox.Text = Cooler.Capacity == 0 ? "" : Cooler.Capacity.ToString("#0.00");
             if (Cooler.Id != Guid.Empty)
             {
@@ -128,6 +128,8 @@ namespace GUI.View.CoolerView
                     {
                         CoolerRepository.Update(Cooler);
                     }
+
+                    new BarcodeForm(Cooler.Barcode, Cooler.Code, Cooler.Capacity, Cooler.MeasureUnit.Acronym).ShowDialog();
                     return true;
                 }
                 else
@@ -148,33 +150,30 @@ namespace GUI.View.CoolerView
             }
             return false;
         }
-        /*
+        
         private void FillMeasureUnitComboBox()
         {
             using (MeasureUnitRepository MeasureUnitRepository = new MeasureUnitRepository())
             {
-                MeasureUnitComboBox.DisplayMember = "Name";
-                MeasureUnitComboBox.ValueMember = "Id";
-                IQueryable<MeasureUnit> ProductCategories = MeasureUnitRepository.FindAll(MeasureUnitComboBox.Text, true, 20);
+                System.Linq.IQueryable<MeasureUnit> ProductCategories = MeasureUnitRepository.FindForComboBox(MeasureUnitComboBox.QueryText, true, 20);
                 MeasureUnitComboBox.FillComboBox<MeasureUnit>(ProductCategories);
             }
         }
 
-        private void MeasureUnitComboBox_TextChanged(object sender, EventArgs e)
-        {
-            if (MeasureUnitComboBox.SelectedItem == null)
-            {
-                FillMeasureUnitComboBox();
-                MeasureUnitComboBox.SelectionStart = MeasureUnitComboBox.Text.Length;
-            }
-        }
-        */
         private void ColorTextBox_Click(object sender, EventArgs e)
         {
             if(ColorDialog.ShowDialog() == DialogResult.OK)
             {
                 ColorTextBox.BackColor = ColorDialog.Color;
+                ColorTextBox.ForeColor = ColorDialog.Color;
             }
+        }
+
+        private string GenerateBarcode()
+        {
+            DateTime Now = CoolerRepository.ApplicationContext.GetCurrentTime();
+            int count = CoolerRepository.CoolerCountToday() + 1;
+            return String.Format("{0}{1}", Now.ToString("yyyyMMdd"), count.ToString("00000"));
         }
     }
 }

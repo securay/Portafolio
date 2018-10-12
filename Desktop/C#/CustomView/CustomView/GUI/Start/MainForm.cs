@@ -90,5 +90,10 @@ namespace GUI.Start
         {
             LoadForm(new View.CoolerView.CoolerListForm());
         }
+
+        private void HeadPanel_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -188,6 +188,7 @@
             // 
             // CoolersButton
             // 
+            this.CoolersButton.Enabled = false;
             this.CoolersButton.EntityName = "CoolerRow";
             this.CoolersButton.FlatAppearance.BorderSize = 0;
             this.CoolersButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;

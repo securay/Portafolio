@@ -121,24 +121,18 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="SearchPictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="SaveButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAUtJREFUSEvt1M8qhFEYx/HXghQXMGFhY4NJNpP8KRvSZCWuYEa5AitXICsL27kH
-        yo4NysLCjpUMmWKBQfmXP9+feuqkcTzDu5xffWre0znP83bOeSdp5D9pQRFbuMEbLrGOGTThz8niGB8R
-        O+hA3VFxvXFY7AkVvAZjcoIM3NG2HMEKnGEWzVDasIBb2JxNuFNAWPynLRjAA2zuKFzRgdqiOQ1EsgSb
-        u6YBT66hBdpzbVcsPbAG+xrwRFdRC3Sgv6Ud1kA3zpUraIFuiw40Ft02a7CrAU82YIvmNRDJCmyufrui
-        K2mLdB59qJUJ2Dfxjn64os9/D9bkDovoRit6sYwX2Bw1moY7XSjDCng8Iw93OrGNWsXM47dnXe0p1BXt
-        dQmHOMUBVjGIIWgLwyZqOonUMoJ7hE3OkWrGYP9LVeSQesZxgeGvp0b8SZJPzJ2DDr9OKlMAAAAASUVO
-        RK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAARVJREFUWEft1jFKBEEURdEONNFcxU2IkRqIO9FFDMxGBGMxMjASBLfjDhwRAxVm
+        7gcLPsVrX09bg0lfOGBQr7sMxO6mpkT7eMInln/wihOsXbxcPXCMBda+RPnNX3A/grrEKQZXhvGwMeWX
+        F3GJMwyqjFpeIAy+RBm0vkB4g60c3sQFgq0c/PcLbIpNjVqyqVFLNjVqyaZGLdnUqPaFW1ziCnf4hjpb
+        s6lR9o5z1F3gA2qT2dQom6GvOdQms6lRdoC+DqE2mU2Nsi30tQ21yWxqlB2hr2OoTWZTo+y3/xEPUJvM
+        pka1a+ygtIsbqLM1W/yNq2EtPjqff8TP6kwtPvdsLT9Ka4+wtfosz+JZ8fI9TE2lum4FMEmyEnh8J9QA
+        AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="ImagePictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAINJREFUOE/tk8EJgDAQBC1EsQ0Vy/BhUYLYhQ/rEq1Cd4IHUZRgfoKByV6Wy3KP
-        JNFaxBbJKlzRieYlveCu2zBy0R6aiUrUnppPj+kpwAyU8ygmT82/9v8BN8aHA3gcpqkoROmp+fSgwQmo
-        4WmS4ATU8DTJKYCPgfGGQbgAviRFBMm8AzePkVsyrlprAAAAAElFTkSuQmCC
-</value>
-  </data>
+  <metadata name="SaveFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>140, 17</value>
+  </metadata>
 </root>

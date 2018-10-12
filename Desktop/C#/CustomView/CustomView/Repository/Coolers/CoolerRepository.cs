@@ -51,23 +51,34 @@ namespace Repository.Coolers
             return res;
         }
 
+        public int CoolerCountToday()
+        {
+            DateTime Now = ApplicationContext.GetCurrentTime();
+            var res = from c in ApplicationContext.Coolers
+                      where c.DateInsert.Year == Now.Year &&
+                      c.DateInsert.Month == Now.Month &&
+                      c.DateInsert.Day == Now.Day
+                      select c;
+            return res.Count();
+        }
+
         public override Entity.Exceptions.DuplicatedExceptionResult<Cooler> findDuplicate(Cooler Cooler)
         {
             var res_code = (from c in ApplicationContext.Coolers
-                      where c.Active &&
-                      c.Code == Cooler.Code
+                      where c.Active && c.Id != Cooler.Id &&
+                      c.Code == Cooler.Code 
                       select c).ToList();
             var res_code_del = (from c in ApplicationContext.Coolers
-                                where !c.Active &&
+                                where !c.Active && c.Id != Cooler.Id &&
                                 c.Code == Cooler.Code
                                 select c).ToList();
 
             var res_barcode = (from c in ApplicationContext.Coolers
-                               where c.Active &&
+                               where c.Active && c.Id != Cooler.Id &&
                                c.Barcode == Cooler.Barcode
                                select c).ToList();
             var res_barcode_del = (from c in ApplicationContext.Coolers
-                               where !c.Active &&
+                               where !c.Active && c.Id != Cooler.Id &&
                                c.Barcode == Cooler.Barcode
                                select c).ToList();
 
