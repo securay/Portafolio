@@ -60,7 +60,7 @@
             this.SaveButton.Location = new System.Drawing.Point(117, 12);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(100, 35);
-            this.SaveButton.TabIndex = 1;
+            this.SaveButton.TabIndex = 0;
             this.SaveButton.Text = "&Guardar";
             this.SaveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -75,7 +75,7 @@
             this.CancelButton.Location = new System.Drawing.Point(7, 12);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(100, 35);
-            this.CancelButton.TabIndex = 0;
+            this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "&Cancelar";
             this.CancelButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CancelButton.UseVisualStyleBackColor = true;

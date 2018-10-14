@@ -417,7 +417,16 @@ namespace GUI.CustomControls
             PageSize = int.Parse(PageSizeToolStripComboBox.Text);
         }
 
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
+            new ExportForm<T>(_sourceQuery.Where(x => x.Active == ShowActive), PageSize, TotalPages, HeaderTexts, "Id", "Active",
+                    "IdInsert", "IPInsert", "DateInsert",
+                    "IdUpdate", "IPUpdate", "DateUpdate",
+                    "IdDelete", "IPDelete", "DateDelete").ShowDialog();
+        }
+
         #endregion
+
         public PaginableDataGrid(Util.ILoadData LoadData)
         {
             this.LoadData = LoadData;
@@ -433,11 +442,11 @@ namespace GUI.CustomControls
 
                 EnableEntityInsert = SystemUserMenuPermission.Insert;
                 EnableEntityUpdate = SystemUserMenuPermission.Update;
-                EnableEntityDelete = SystemUserMenuPermission.Delete;
+                ShowDeleteButton = EnableEntityDelete = SystemUserMenuPermission.Delete;
                 EnableEntityList = SystemUserMenuPermission.List;
                 EnableEntityExport = SystemUserMenuPermission.Export;
                 EnableEntityExtra = SystemUserMenuPermission.Extras;
-                EnableEntityActivate = SystemUserMenuPermission.Activate;
+                ShowActivateColumn = EnableEntityActivate = SystemUserMenuPermission.Activate;
             }
 
             StatusToolStripComboBox.SelectedIndex = 0;

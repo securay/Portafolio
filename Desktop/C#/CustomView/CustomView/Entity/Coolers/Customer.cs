@@ -18,5 +18,10 @@ namespace Entity.Coolers
         public String RUC { get; set; }
         [MaxLength(200)]
         public String Description { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

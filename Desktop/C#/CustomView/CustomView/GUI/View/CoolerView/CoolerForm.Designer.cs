@@ -49,12 +49,12 @@
             this.MainLayoutPanel.Controls.Add(this.BarcodeTextBox, 0, 2);
             this.MainLayoutPanel.Controls.Add(this.ColorTextBox, 0, 4);
             this.MainLayoutPanel.Controls.Add(this.CapacityTextBox, 0, 6);
-            this.MainLayoutPanel.Controls.Add(this.ButtonsPanel, 1, 9);
+            this.MainLayoutPanel.Controls.Add(this.ButtonsPanel, 1, 10);
             this.MainLayoutPanel.Controls.Add(this.MeasureUnitComboBox, 0, 8);
             this.MainLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainLayoutPanel.Location = new System.Drawing.Point(0, 30);
             this.MainLayoutPanel.Name = "MainLayoutPanel";
-            this.MainLayoutPanel.RowCount = 10;
+            this.MainLayoutPanel.RowCount = 11;
             this.MainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.MainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.MainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -64,6 +64,7 @@
             this.MainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.MainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.MainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.MainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.MainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.MainLayoutPanel.Size = new System.Drawing.Size(400, 290);
             this.MainLayoutPanel.TabIndex = 1;
@@ -86,7 +87,7 @@
             this.MainLayoutPanel.SetColumnSpan(this.BarcodeTextBox, 2);
             this.BarcodeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BarcodeTextBox.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BarcodeTextBox.Location = new System.Drawing.Point(3, 54);
+            this.BarcodeTextBox.Location = new System.Drawing.Point(3, 50);
             this.BarcodeTextBox.MaxLength = 13;
             this.BarcodeTextBox.Name = "BarcodeTextBox";
             this.BarcodeTextBox.Size = new System.Drawing.Size(394, 22);
@@ -100,7 +101,7 @@
             this.MainLayoutPanel.SetColumnSpan(this.ColorTextBox, 2);
             this.ColorTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ColorTextBox.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ColorTextBox.Location = new System.Drawing.Point(3, 105);
+            this.ColorTextBox.Location = new System.Drawing.Point(3, 97);
             this.ColorTextBox.Name = "ColorTextBox";
             this.ColorTextBox.Size = new System.Drawing.Size(394, 22);
             this.ColorTextBox.TabIndex = 2;
@@ -114,7 +115,7 @@
             this.MainLayoutPanel.SetColumnSpan(this.CapacityTextBox, 2);
             this.CapacityTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CapacityTextBox.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CapacityTextBox.Location = new System.Drawing.Point(3, 156);
+            this.CapacityTextBox.Location = new System.Drawing.Point(3, 144);
             this.CapacityTextBox.Name = "CapacityTextBox";
             this.CapacityTextBox.Size = new System.Drawing.Size(394, 22);
             this.CapacityTextBox.TabIndex = 3;
@@ -137,7 +138,7 @@
             this.MeasureUnitComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.MeasureUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MeasureUnitComboBox.FormattingEnabled = true;
-            this.MeasureUnitComboBox.Location = new System.Drawing.Point(3, 207);
+            this.MeasureUnitComboBox.Location = new System.Drawing.Point(3, 191);
             this.MeasureUnitComboBox.Name = "MeasureUnitComboBox";
             this.MeasureUnitComboBox.QueryText = "";
             this.MeasureUnitComboBox.Size = new System.Drawing.Size(394, 21);

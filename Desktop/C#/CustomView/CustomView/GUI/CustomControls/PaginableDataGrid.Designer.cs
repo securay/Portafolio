@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new Util.CustomComponentResourceManager(typeof(PaginableDataGrid<>), "PaginableDataGrid");
+            System.ComponentModel.ComponentResourceManager resources = new Util.CustomComponentResourceManager(typeof(PaginableDataGrid<>), "PaginableDataGrid"); ;
             this.MainLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.MainToolStrip = new System.Windows.Forms.ToolStrip();
             this.FirstToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -251,13 +251,14 @@
             this.ExportToolStripButton.Name = "ExportToolStripButton";
             this.ExportToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.ExportToolStripButton.ToolTipText = "Exportar";
+            this.ExportToolStripButton.Click += new System.EventHandler(this.ExportButton_Click);
             // 
             // Grid
             // 
             this.Grid.AllowUserToAddRows = false;
             this.Grid.AllowUserToDeleteRows = false;
-            this.Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Grid.Location = new System.Drawing.Point(3, 3);
             this.Grid.Name = "Grid";

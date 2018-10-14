@@ -31,6 +31,7 @@ namespace GUI.CustomControls
         public WaterMarkTextBox()
         {
             JoinEvents(true);
+            Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
         }
 
         protected override void OnCreateControl()

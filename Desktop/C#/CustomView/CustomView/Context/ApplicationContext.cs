@@ -26,7 +26,10 @@ namespace Context
         #region Coolers
 
         public DbSet<Cooler> Coolers { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<MeasureUnit> MeasureUnits { get; set; }
+        public DbSet<ServiceOrder> ServiceOrders { get; set; }
+        public DbSet<ServiceOrderDetail> ServiceOrderDetails { get; set; }
 
         #endregion
 

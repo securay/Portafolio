@@ -21,6 +21,7 @@ namespace GUI.View.CoolerView
             InitializeComponent();
 
             DrawBarcode();
+            SaveFileDialog.FileName = String.Format("{0}-{1}.bmp", Code, Barcode);
         }
 
         private void DrawBarcode()
@@ -35,14 +36,15 @@ namespace GUI.View.CoolerView
                 drawFormat.Alignment = StringAlignment.Center;
 
                 g.Clear(Color.White);
-                R.Y = 50;
-                //g.DrawString(String.Format("*{0}*", Barcode), BarCodeFont, Brushes.Black, 10, 50);
+                R.Y = 45;
                 g.DrawString(String.Format("*{0}*", Barcode), BarCodeFont, Brushes.Black, R, drawFormat);
-                R.Y = 130;
+                R.Y = 80;
+                g.DrawString(String.Format("*{0}*", Barcode), BarCodeFont, Brushes.Black, R, drawFormat);
+                R.Y = 110;
                 g.DrawString(Barcode, TextFont, Brushes.Black, R, drawFormat);
-                R.Y = 150;
+                R.Y = 130;
                 g.DrawString(Code, TextFont, Brushes.Black, R, drawFormat);
-                R.Y = 180;
+                R.Y = 160;
                 g.DrawString(String.Format("{0} {1}", Capacity.ToString("#0.00"), Acronym), TextFont, Brushes.Black, R, drawFormat);
             }
             BarcodePictureBox.Image = DrawArea;

@@ -1,20 +1,18 @@
 ﻿using Entity.Coolers;
-using Entity.Coolers.Extra;
 using GUI.CustomControls;
 using Repository.Coolers;
 using System;
 using System.Windows.Forms;
 
-namespace GUI.View.CoolerView
+namespace GUI.View.CustomerView
 {
-    public partial class CoolerListForm : BaseForm, Util.ILoadData
+    public partial class CustomerListForm : BaseForm, Util.ILoadData
     {
-        protected CoolerRepository CoolerRepository;
-        private PaginableDataGrid<CoolerRow> PaginableDataGrid;
-        private ToolStripButton GetImageButton;
-        public CoolerListForm()
+        protected CustomerRepository CustomerRepository;
+        private PaginableDataGrid<Customer> PaginableDataGrid;
+        public CustomerListForm()
         {
-            CoolerRepository = new CoolerRepository();
+            CustomerRepository = new CustomerRepository();
 
             InitializeComponent();
 
@@ -26,7 +24,7 @@ namespace GUI.View.CoolerView
 
         protected void InitializeGrid()
         {
-            PaginableDataGrid = new PaginableDataGrid<CoolerRow>(this);
+            PaginableDataGrid = new PaginableDataGrid<Customer>(this);
             PaginableDataGrid.Grid.ReadOnly = true;
             PaginableDataGrid.CastSourceQueryToList = true;
             PaginableDataGrid.AddToolStripButton.Click += new EventHandler(BtnAdd_Click);
@@ -37,51 +35,22 @@ namespace GUI.View.CoolerView
 
 
             PaginableDataGrid.Grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            PaginableDataGrid.Grid.CellFormatting += Grid_CellFormatting;
 
-            PaginableDataGrid.HeaderTexts["Code"] = "Código";
-            PaginableDataGrid.HeaderTexts["Barcode"] = "Barcode";
-            PaginableDataGrid.HeaderTexts["Color"] = "Color";
-            PaginableDataGrid.HeaderTexts["Capacity"] = "Capacidad";
-            PaginableDataGrid.HeaderTexts["MeasureUnit"] = "Unidad de Medida";
-
-
-            GetImageButton = new ToolStripButton("", ImagePictureBox.Image, new EventHandler(BtnBarcode_Click));
-            PaginableDataGrid.MainToolStrip.Items.Add(GetImageButton);
+            PaginableDataGrid.HeaderTexts["RUC"] = "RUC";
+            PaginableDataGrid.HeaderTexts["Name"] = "Nombre";
+            PaginableDataGrid.HeaderTexts["Description"] = "Descripción";
 
             GridPanel.Controls.Add(PaginableDataGrid);
         }
-
-        private void BtnBarcode_Click(object sender, EventArgs e)
-        {
-            if (PaginableDataGrid.SelectedEntity == null)
-            {
-                MessageDialog(Util.MessageUtil.GlobalSelectRow, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            Cooler dt = CoolerRepository.findById(PaginableDataGrid.SelectedEntity.Id);
-            new BarcodeForm(dt.Barcode, dt.Code, dt.Capacity, dt.MeasureUnit.Acronym).ShowDialog();
-        }
-
-        private void Grid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if(e.ColumnIndex != PaginableDataGrid.Grid.Columns["Color"].Index) return;
-
-            System.Drawing.Color BackColor = System.Drawing.Color.FromArgb(int.Parse(e.Value.ToString()));
-            e.CellStyle.BackColor = BackColor;
-            e.CellStyle.ForeColor = BackColor;
-        }
-
         public void LoadData()
         {
-            var res = CoolerRepository.FindAllRow(QueryTextBox.Text, PaginableDataGrid.ShowActive, 0);
+            var res = CustomerRepository.FindAllRow(QueryTextBox.Text, PaginableDataGrid.ShowActive, 0);
             PaginableDataGrid.SourceQuery = res;
         }
 
         protected void BtnAdd_Click(object sender, EventArgs e)
         {
-            CoolerForm Form = new CoolerForm(CoolerRepository);
+            CustomerForm Form = new CustomerForm(CustomerRepository);
             Form.Create();
             if (Form.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
@@ -103,12 +72,12 @@ namespace GUI.View.CoolerView
             }
 
             if (MessageDialog(String.Format(Util.MessageUtil.GlobalDeleteConfirm,
-                PaginableDataGrid.SelectedEntity.Code), MessageBoxIcon.Question, MessageBoxButtons.YesNo)
+                PaginableDataGrid.SelectedEntity.Name), MessageBoxIcon.Question, MessageBoxButtons.YesNo)
                 == DialogResult.No)
                 return;
 
-            Cooler Cooler = CoolerRepository.findById(PaginableDataGrid.SelectedEntity.Id);
-            CoolerRepository.SoftDelete(Cooler);
+            Customer Customer = CustomerRepository.findById(PaginableDataGrid.SelectedEntity.Id);
+            CustomerRepository.SoftDelete(Customer);
             LoadData();
         }
 
@@ -121,12 +90,12 @@ namespace GUI.View.CoolerView
             }
 
             if (MessageDialog(String.Format(Util.MessageUtil.GlobalActivateConfirm,
-                PaginableDataGrid.SelectedEntity.Code), MessageBoxIcon.Question, MessageBoxButtons.YesNo)
+                PaginableDataGrid.SelectedEntity.Name), MessageBoxIcon.Question, MessageBoxButtons.YesNo)
                 == DialogResult.No)
                 return;
 
-            Cooler Cooler = CoolerRepository.findById(PaginableDataGrid.SelectedEntity.Id);
-            CoolerRepository.Reactivate(Cooler);
+            Customer Customer = CustomerRepository.findById(PaginableDataGrid.SelectedEntity.Id);
+            CustomerRepository.Reactivate(Customer);
             LoadData();
         }
 
@@ -138,8 +107,8 @@ namespace GUI.View.CoolerView
                 return;
             }
 
-            Cooler dt = CoolerRepository.findById(PaginableDataGrid.SelectedEntity.Id);
-            CoolerForm form = new CoolerForm(CoolerRepository);
+            Customer dt = CustomerRepository.findById(PaginableDataGrid.SelectedEntity.Id);
+            CustomerForm form = new CustomerForm(CustomerRepository);
             form.Edit(dt);
             if (form.ShowDialog(this) == DialogResult.OK)
             {

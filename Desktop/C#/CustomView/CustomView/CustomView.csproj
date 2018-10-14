@@ -40,9 +40,15 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.2.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,6 +76,9 @@
     <Compile Include="Entity\Auth\SystemUser.cs" />
     <Compile Include="Entity\Auth\SystemUserMenuPermission.cs" />
     <Compile Include="Entity\BaseEntity.cs" />
+    <Compile Include="Entity\Coolers\Extra\ServiceOrderCoolerRow.cs" />
+    <Compile Include="Entity\Coolers\Extra\ServiceOrderRow.cs" />
+    <Compile Include="Entity\Coolers\Extra\ServiceOrderDetailRow.cs" />
     <Compile Include="Entity\Coolers\Extra\CoolerRow.cs" />
     <Compile Include="Entity\Coolers\ServiceOrderDetail.cs" />
     <Compile Include="Entity\Coolers\ServiceOrder.cs" />
@@ -94,6 +103,12 @@
     </Compile>
     <Compile Include="GUI\CustomControls\ComboBoxWaterMark.Designer.cs">
       <DependentUpon>ComboBoxWaterMark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CustomControls\ExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CustomControls\ExportForm.designer.cs">
+      <DependentUpon>ExportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\CustomControls\MenuButton.cs">
       <SubType>Component</SubType>
@@ -140,16 +155,50 @@
     <Compile Include="GUI\View\CoolerView\CoolerListForm.Designer.cs">
       <DependentUpon>CoolerListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\View\CustomerView\CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\View\CustomerView\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\View\CustomerView\CustomerListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\View\CustomerView\CustomerListForm.Designer.cs">
+      <DependentUpon>CustomerListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\View\ServiceOrderDetailView\ServiceOrderDetailListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\View\ServiceOrderDetailView\ServiceOrderDetailListForm.Designer.cs">
+      <DependentUpon>ServiceOrderDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\View\ServiceOrderView\ServiceOrderListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\View\ServiceOrderView\ServiceOrderListForm.Designer.cs">
+      <DependentUpon>ServiceOrderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\View\ServiceOrderView\ServiceOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\View\ServiceOrderView\ServiceOrderForm.Designer.cs">
+      <DependentUpon>ServiceOrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Auth\SystemMenuRepository.cs" />
     <Compile Include="Repository\Auth\SystemUserMenuPermissionRepository.cs" />
     <Compile Include="Repository\Auth\SystemUserRepository.cs" />
     <Compile Include="Repository\BaseRepository.cs" />
+    <Compile Include="Repository\Coolers\ServiceOrderDetailRepository.cs" />
+    <Compile Include="Repository\Coolers\ServiceOrderRepository.cs" />
+    <Compile Include="Repository\Coolers\CustomerRepository.cs" />
     <Compile Include="Repository\Coolers\CoolerRepository.cs" />
     <Compile Include="Repository\Coolers\MeasureUnitRepository.cs" />
     <Compile Include="Util\CustomComponentResourceManager.cs" />
     <Compile Include="Util\DataValidationUtil.cs" />
+    <Compile Include="Util\ExcelExportUtil.cs" />
     <Compile Include="Util\Extensions.cs" />
     <Compile Include="Util\ILoadData.cs" />
     <Compile Include="Util\Logger.cs" />
@@ -165,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\CustomControls\ButtonsContainer.resx">
       <DependentUpon>ButtonsContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CustomControls\ExportForm.resx">
+      <DependentUpon>ExportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\CustomControls\PaginableDataGrid.resx">
       <DependentUpon>PaginableDataGrid.cs</DependentUpon>
@@ -186,6 +238,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\View\CoolerView\CoolerListForm.resx">
       <DependentUpon>CoolerListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\View\CustomerView\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\View\CustomerView\CustomerListForm.resx">
+      <DependentUpon>CustomerListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\View\ServiceOrderDetailView\ServiceOrderDetailListForm.resx">
+      <DependentUpon>ServiceOrderDetailListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\View\ServiceOrderView\ServiceOrderListForm.resx">
+      <DependentUpon>ServiceOrderListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\View\ServiceOrderView\ServiceOrderForm.resx">
+      <DependentUpon>ServiceOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

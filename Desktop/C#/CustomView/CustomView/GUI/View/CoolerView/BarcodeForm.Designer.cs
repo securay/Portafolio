@@ -41,9 +41,9 @@
             // MainLayoutPanel
             // 
             this.MainLayoutPanel.ColumnCount = 3;
-            this.MainLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.46154F));
-            this.MainLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.46154F));
-            this.MainLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.07692F));
+            this.MainLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37F));
+            this.MainLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26F));
+            this.MainLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37F));
             this.MainLayoutPanel.Controls.Add(this.BarcodePictureBox, 0, 0);
             this.MainLayoutPanel.Controls.Add(this.SaveButton, 1, 1);
             this.MainLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -72,9 +72,9 @@
             this.SaveButton.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaveButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveButton.Image")));
             this.SaveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SaveButton.Location = new System.Drawing.Point(143, 233);
+            this.SaveButton.Location = new System.Drawing.Point(151, 233);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(114, 34);
+            this.SaveButton.Size = new System.Drawing.Size(98, 34);
             this.SaveButton.TabIndex = 1;
             this.SaveButton.Text = "&Guardar";
             this.SaveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

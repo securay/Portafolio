@@ -1,6 +1,6 @@
-﻿namespace GUI.View.CoolerView
+﻿namespace GUI.View.ServiceOrderView
 {
-    partial class CoolerListForm
+    partial class ServiceOrderListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CoolerListForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiceOrderListForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.QueryTextBox = new GUI.CustomControls.WaterMarkTextBox();
             this.SearchPictureBox = new System.Windows.Forms.PictureBox();
             this.GridPanel = new System.Windows.Forms.Panel();
-            this.ImagePictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchPictureBox)).BeginInit();
-            this.GridPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImagePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -68,7 +65,7 @@
             this.QueryTextBox.TabIndex = 0;
             this.QueryTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.QueryTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.QueryTextBox.WaterMarkText = "Busqueda por Código";
+            this.QueryTextBox.WaterMarkText = "Busqueda por Orden de Servicio o RUC";
             this.QueryTextBox.TextChanged += new System.EventHandler(this.QueryTextBox_TextChanged);
             // 
             // SearchPictureBox
@@ -86,38 +83,25 @@
             // GridPanel
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.GridPanel, 2);
-            this.GridPanel.Controls.Add(this.ImagePictureBox);
             this.GridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridPanel.Location = new System.Drawing.Point(3, 28);
             this.GridPanel.Name = "GridPanel";
             this.GridPanel.Size = new System.Drawing.Size(694, 239);
             this.GridPanel.TabIndex = 2;
             // 
-            // ImagePictureBox
-            // 
-            this.ImagePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("ImagePictureBox.Image")));
-            this.ImagePictureBox.Location = new System.Drawing.Point(41, 176);
-            this.ImagePictureBox.Name = "ImagePictureBox";
-            this.ImagePictureBox.Size = new System.Drawing.Size(100, 50);
-            this.ImagePictureBox.TabIndex = 0;
-            this.ImagePictureBox.TabStop = false;
-            this.ImagePictureBox.Visible = false;
-            // 
-            // CoolerListForm
+            // ServiceOrderListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 300);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "CoolerListForm";
-            this.Text = "Coolers";
+            this.Name = "ServiceOrderListForm";
+            this.Text = "Ordenes de Servicio";
             this.Controls.SetChildIndex(this.tableLayoutPanel1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchPictureBox)).EndInit();
-            this.GridPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ImagePictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -128,6 +112,5 @@
         private CustomControls.WaterMarkTextBox QueryTextBox;
         private System.Windows.Forms.PictureBox SearchPictureBox;
         private System.Windows.Forms.Panel GridPanel;
-        private System.Windows.Forms.PictureBox ImagePictureBox;
     }
 }

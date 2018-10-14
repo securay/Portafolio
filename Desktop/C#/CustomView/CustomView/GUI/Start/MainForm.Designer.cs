@@ -41,7 +41,10 @@
             this.RestorePictureBox = new System.Windows.Forms.PictureBox();
             this.MinimizePictureBox = new System.Windows.Forms.PictureBox();
             this.ClosePictureBox = new System.Windows.Forms.PictureBox();
+            this.ServiceOrderButton = new CustomView.GUI.CustomControls.MenuButton();
+            this.CustomerButton = new CustomView.GUI.CustomControls.MenuButton();
             this.CoolersButton = new CustomView.GUI.CustomControls.MenuButton();
+            this.ServiceOrderCoolerButton = new CustomView.GUI.CustomControls.MenuButton();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.HeadPanel.SuspendLayout();
@@ -57,6 +60,9 @@
             // MenuPanel
             // 
             this.MenuPanel.BackColor = System.Drawing.Color.DodgerBlue;
+            this.MenuPanel.Controls.Add(this.ServiceOrderCoolerButton);
+            this.MenuPanel.Controls.Add(this.ServiceOrderButton);
+            this.MenuPanel.Controls.Add(this.CustomerButton);
             this.MenuPanel.Controls.Add(this.CoolersButton);
             this.MenuPanel.Controls.Add(this.LogoPictureBox);
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -186,6 +192,44 @@
             this.ClosePictureBox.TabStop = false;
             this.ClosePictureBox.Click += new System.EventHandler(this.ClosePictureBox_Click);
             // 
+            // ServiceOrderButton
+            // 
+            this.ServiceOrderButton.Enabled = false;
+            this.ServiceOrderButton.EntityName = "ServiceOrderRow";
+            this.ServiceOrderButton.FlatAppearance.BorderSize = 0;
+            this.ServiceOrderButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.ServiceOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ServiceOrderButton.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ServiceOrderButton.ForeColor = System.Drawing.Color.White;
+            this.ServiceOrderButton.Image = ((System.Drawing.Image)(resources.GetObject("ServiceOrderButton.Image")));
+            this.ServiceOrderButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ServiceOrderButton.Location = new System.Drawing.Point(0, 178);
+            this.ServiceOrderButton.Name = "ServiceOrderButton";
+            this.ServiceOrderButton.Size = new System.Drawing.Size(250, 55);
+            this.ServiceOrderButton.TabIndex = 4;
+            this.ServiceOrderButton.Text = "Orden de Servicio";
+            this.ServiceOrderButton.UseVisualStyleBackColor = true;
+            this.ServiceOrderButton.Click += new System.EventHandler(this.ServiceOrderButton_Click);
+            // 
+            // CustomerButton
+            // 
+            this.CustomerButton.Enabled = false;
+            this.CustomerButton.EntityName = "Customer";
+            this.CustomerButton.FlatAppearance.BorderSize = 0;
+            this.CustomerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.CustomerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CustomerButton.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomerButton.ForeColor = System.Drawing.Color.White;
+            this.CustomerButton.Image = ((System.Drawing.Image)(resources.GetObject("CustomerButton.Image")));
+            this.CustomerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CustomerButton.Location = new System.Drawing.Point(0, 117);
+            this.CustomerButton.Name = "CustomerButton";
+            this.CustomerButton.Size = new System.Drawing.Size(250, 55);
+            this.CustomerButton.TabIndex = 3;
+            this.CustomerButton.Text = "Clientes";
+            this.CustomerButton.UseVisualStyleBackColor = true;
+            this.CustomerButton.Click += new System.EventHandler(this.CustomerButton_Click);
+            // 
             // CoolersButton
             // 
             this.CoolersButton.Enabled = false;
@@ -204,6 +248,25 @@
             this.CoolersButton.Text = "Coolers";
             this.CoolersButton.UseVisualStyleBackColor = true;
             this.CoolersButton.Click += new System.EventHandler(this.CoolersButton_Click);
+            // 
+            // ServiceOrderCoolerButton
+            // 
+            this.ServiceOrderCoolerButton.Enabled = false;
+            this.ServiceOrderCoolerButton.EntityName = "ServiceOrderCoolerRow";
+            this.ServiceOrderCoolerButton.FlatAppearance.BorderSize = 0;
+            this.ServiceOrderCoolerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.ServiceOrderCoolerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ServiceOrderCoolerButton.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ServiceOrderCoolerButton.ForeColor = System.Drawing.Color.White;
+            this.ServiceOrderCoolerButton.Image = ((System.Drawing.Image)(resources.GetObject("ServiceOrderCoolerButton.Image")));
+            this.ServiceOrderCoolerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ServiceOrderCoolerButton.Location = new System.Drawing.Point(0, 239);
+            this.ServiceOrderCoolerButton.Name = "ServiceOrderCoolerButton";
+            this.ServiceOrderCoolerButton.Size = new System.Drawing.Size(250, 55);
+            this.ServiceOrderCoolerButton.TabIndex = 5;
+            this.ServiceOrderCoolerButton.Text = "Recepción";
+            this.ServiceOrderCoolerButton.UseVisualStyleBackColor = true;
+            this.ServiceOrderCoolerButton.Click += new System.EventHandler(this.ServiceOrderCoolerButton_Click);
             // 
             // MainForm
             // 
@@ -246,5 +309,8 @@
         private System.Windows.Forms.PictureBox TimePictureBox;
         private System.Windows.Forms.PictureBox UserPictureBox;
         private CustomView.GUI.CustomControls.MenuButton CoolersButton;
+        private CustomView.GUI.CustomControls.MenuButton CustomerButton;
+        private CustomView.GUI.CustomControls.MenuButton ServiceOrderButton;
+        private CustomView.GUI.CustomControls.MenuButton ServiceOrderCoolerButton;
     }
 }

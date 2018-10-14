@@ -95,5 +95,20 @@ namespace GUI.Start
         {
 
         }
+
+        private void CustomerButton_Click(object sender, EventArgs e)
+        {
+            LoadForm(new View.CustomerView.CustomerListForm());
+        }
+
+        private void ServiceOrderButton_Click(object sender, EventArgs e)
+        {
+            LoadForm(new View.ServiceOrderView.ServiceOrderListForm());
+        }
+
+        private void ServiceOrderCoolerButton_Click(object sender, EventArgs e)
+        {
+            LoadForm(new View.ServiceOrderDetailView.ServiceOrderDetailListForm());
+        }
     }
 }

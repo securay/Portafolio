@@ -18,6 +18,15 @@ namespace Repository.Coolers
         {
         }
 
+        public Cooler FindByBarcode(string Barcode)
+        {
+            var res = from c in ApplicationContext.Coolers
+                      where c.Barcode == Barcode &&
+                            c.Active
+                      select c;
+            return res.FirstOrDefault();
+        }
+
         public IQueryable<CoolerRow> FindAllRow(String Query, bool Active, int Take)
         {
             var res = from c in ApplicationContext.Coolers
@@ -104,7 +113,7 @@ namespace Repository.Coolers
             {
                 return new Entity.Exceptions.DuplicatedExceptionResult<Cooler>()
                 {
-                    DuplicatedItems = res_code,
+                    DuplicatedItems = res_barcode,
                     Reason = Entity.Exceptions.Reason.Duplicated,
                     Message = "Ya existe un registro con el mismo código de barras"
                 };
@@ -113,7 +122,7 @@ namespace Repository.Coolers
             {
                 return new Entity.Exceptions.DuplicatedExceptionResult<Cooler>()
                 {
-                    DuplicatedItems = res_code,
+                    DuplicatedItems = res_code_del,
                     Reason = Entity.Exceptions.Reason.DuplicatedAndDeleted,
                     Message = "Ya existe un registro inactivo con el mismo código de cooler y código de barras"
                 };
@@ -122,7 +131,7 @@ namespace Repository.Coolers
             {
                 return new Entity.Exceptions.DuplicatedExceptionResult<Cooler>()
                 {
-                    DuplicatedItems = res_code,
+                    DuplicatedItems = res_code_del,
                     Reason = Entity.Exceptions.Reason.DuplicatedAndDeleted,
                     Message = "Ya existe un registro inactivo con el mismo código"
                 };
@@ -131,7 +140,7 @@ namespace Repository.Coolers
             {
                 return new Entity.Exceptions.DuplicatedExceptionResult<Cooler>()
                 {
-                    DuplicatedItems = res_code,
+                    DuplicatedItems = res_barcode_del,
                     Reason = Entity.Exceptions.Reason.DuplicatedAndDeleted,
                     Message = "Ya existe un registro inactivo con el mismo código de barras"
                 };
