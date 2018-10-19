@@ -28,5 +28,10 @@ namespace Entity.Auth
         [Column(TypeName = "DateTime2")]
         public DateTime? UnLockTime { get; set; }
         public int LoginFailures { get; set; }
+
+        public override string ToString()
+        {
+            return Username;
+        }
     }
 }

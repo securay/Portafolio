@@ -83,7 +83,7 @@ namespace Repository.Coolers
             {
                 return new Entity.Exceptions.DuplicatedExceptionResult<ServiceOrder>()
                 {
-                    DuplicatedItems = res_barcode,
+                    DuplicatedItems = res_barcode_del,
                     Reason = Entity.Exceptions.Reason.DuplicatedAndDeleted,
                     Message = "Ya existe un registro inactivo con el mismo código"
                 };

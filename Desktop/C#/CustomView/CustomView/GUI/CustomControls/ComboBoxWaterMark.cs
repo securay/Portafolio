@@ -38,6 +38,7 @@ namespace GUI.CustomControls
 
         private void ComboBoxWaterMark_KeyPress(object sender, KeyPressEventArgs e)
         {
+            e.Handled = true;
             if ((e.KeyChar != (char)13))
             {
                 if (char.IsLetterOrDigit(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))

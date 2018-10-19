@@ -11,7 +11,7 @@ namespace Authentication
     public class Security
     {
         public Session Session { get; set; }
-        protected ApplicationContext ApplicationContext;
+        public ApplicationContext ApplicationContext { get; set; }
 
         public Security()
         {
@@ -35,29 +35,49 @@ namespace Authentication
             }
         }
 
+        public SystemUser GetSystemUserByName(string login)
+        {
+            return new Repository.Auth.SystemUserRepository().GetByName(login);
+        }
+
         public bool RequestLogin(string login, string pass)
         {
             SystemUser user = ValidateUser(login, pass);
 
             if (user == null)
             {
+                user = GetSystemUserByName(login);
+                user.LoginFailures++;
+                if (user.LoginFailures >= 3)
+                {
+                    user.UnLockTime = ApplicationContext.GetCurrentTime().AddSeconds(15 * (user.LoginFailures - 2));
+                }
+                ApplicationContext.SaveChanges();
                 return false;
             }
-            Session = new Session();
-            if (user.LastAccess != null)
-                Session.UserLastAccessDate = (DateTime)user.LastAccess;
 
-            user.LastAccess = ApplicationContext.GetCurrentTime();
-            ApplicationContext.SaveChanges();
+            if ((user.UnLockTime.HasValue && user.UnLockTime.Value <= ApplicationContext.GetCurrentTime()) ||
+                    !user.UnLockTime.HasValue)
+            {
+                Session = new Session();
+                if (user.LastAccess != null)
+                    Session.UserLastAccessDate = (DateTime)user.LastAccess;
 
-            Session.User = user;
+                user.LastAccess = ApplicationContext.GetCurrentTime();
+                user.LoginFailures = 0;
+                user.UnLockTime = null;
+                ApplicationContext.SaveChanges();
 
-            return true;
+                Session.User = user;
+
+                return true;
+            }
+            return false;
         }
 
         public bool UserExists(string login)
         {
-            var query = from u in ApplicationContext.SystemUsers
+            var query = from u in UserQuery()
                         where u.Username == login
                         select u;
             return query.Count() > 0;
@@ -65,7 +85,7 @@ namespace Authentication
 
         public bool UserIsActive(string login)
         {
-            var query = from u in ApplicationContext.SystemUsers
+            var query = from u in UserQuery()
                         where u.Username == login && u.Active == true
                         select u;
             return query.Count() > 0;
@@ -122,7 +142,7 @@ namespace Authentication
 
         public SystemUser GetSystemUser()
         {
-            var result = (from su in ApplicationContext.SystemUsers
+            var result = (from su in UserQuery()
                           where su.Id == Session.User.Id
                           select su).First();
             return result;

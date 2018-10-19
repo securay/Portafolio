@@ -6,14 +6,35 @@ namespace GUI.Start
 {
     public partial class LoginForm : Form
     {
+        System.ComponentModel.BackgroundWorker Worker;
         public LoginForm()
         {
+            CheckForIllegalCrossThreadCalls = false;
+
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
             Util.WindowUtil.AssignMouseDown(this.Handle, LogoPictureBox);
             Util.WindowUtil.AssignMouseDown(this.Handle, this);
             Util.WindowUtil.AssignMouseDown(this.Handle, TitleLabel);
             Program.Security = new Authentication.Security(); ;
+
+            Worker = new System.ComponentModel.BackgroundWorker();
+            Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+            Worker.DoWork += Worker_DoWork; ;
+        }
+
+        private void Worker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            LoginButton.Enabled = true;
+            if(!Visible)
+            {
+                new MainForm().Show();
+            }
+        }
+
+        private void Worker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            _DoLogin();
         }
 
         private void ClosePictureBox_Click(object sender, System.EventArgs e)
@@ -23,6 +44,18 @@ namespace GUI.Start
 
         private void LoginButton_Click(object sender, System.EventArgs e)
         {
+            DoLogin();
+        }
+
+        private void DoLogin()
+        {
+            LoginButton.Enabled = false;
+            Worker.RunWorkerAsync();
+        }
+
+        private void _DoLogin()
+        {
+            Cursor = Cursors.WaitCursor;
             if (UserNameTextBox.Text.Length > 0 && UserNameTextBox.ForeColor == System.Drawing.Color.LightGray)
             {
                 if (Program.Security.UserExists(UserNameTextBox.Text))
@@ -33,16 +66,29 @@ namespace GUI.Start
                         {
                             if (Program.Security.RequestLogin(UserNameTextBox.Text, PasswordTextBox.Text))
                             {
-                                Cursor = Cursors.WaitCursor;
-
-                                new MainForm().Show();
-                                Visible = false;
-
-                                Cursor = Cursors.Default;
+                                if (Program.Security.Session.User.UserExpires && 
+                                        Program.Security.Session.User.ExpirationDate < Program.Security.ApplicationContext.GetCurrentTime())
+                                {
+                                    ShowMessage("El usuario ha expirado.");
+                                }
+                                else
+                                {
+                                    Visible = false;
+                                    
+                                }
                             }
                             else
                             {
-                                ShowMessage("La contraseña ingresada es incorrecta.");
+                                Entity.Auth.SystemUser SystemUser = Program.Security.GetSystemUserByName(UserNameTextBox.Text);
+                                if (SystemUser.LoginFailures >= 3)
+                                {
+                                    ShowMessage(string.Format("La contraseña ingresada es incorrecta. \nLa cuenta ha sido bloqueada hasta {0}", 
+                                                                SystemUser.UnLockTime.Value.ToString("dd/MM/yyyy HH:mm:ss")));
+                                }
+                                else
+                                {
+                                    ShowMessage("La contraseña ingresada es incorrecta.");
+                                }
                             }
                         }
                         else
@@ -71,6 +117,7 @@ namespace GUI.Start
                     ShowMessage("Debe ingresar su nombre de usuario y contraseña.");
                 }
             }
+            Cursor = Cursors.Default;
         }
 
         public void ShowMessage(string Message)
@@ -81,13 +128,13 @@ namespace GUI.Start
         private void PasswordTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
-                LoginButton_Click(sender, e);
+                DoLogin();
         }
 
         private void UserNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
-                LoginButton_Click(sender, e);
+                DoLogin();
         }
     }
 }

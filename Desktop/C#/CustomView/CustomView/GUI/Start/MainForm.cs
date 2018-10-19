@@ -110,5 +110,25 @@ namespace GUI.Start
         {
             LoadForm(new View.ServiceOrderDetailView.ServiceOrderDetailListForm());
         }
+
+        private void EmployeeButton_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Auth.EmployeeView.EmployeeListForm());
+        }
+
+        private void SystemUserButton_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Auth.SystemUserView.SystemUserListForm());
+        }
+
+        private void PermissionsButton_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Auth.PermissionsView.PermissionsForm());
+        }
+
+        private void ChangePasswordButton_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Auth.SystemUserView.SystemUserChangePasswordForm());
+        }
     }
 }

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Windows.Forms;
 using Util;
 
@@ -28,17 +23,7 @@ namespace GUI.CustomControls
                 TitleLabel.Text = value;
             }
         }
-        /*public Panel MainPanel
-        {
-            get
-            {
-                return _MainPanel;
-            }
-            set
-            {
-                _MainPanel = value;
-            }
-        }*/
+        private Font ControlFont;
         public Authentication.Security Security { get; set; }
 
         #endregion
@@ -102,6 +87,7 @@ namespace GUI.CustomControls
                     AssignAuditToButtonsRecursive(c);
                 }
             }).Start();
+            AssignFormStyles();
         }
 
         protected void BaseForm_VisibleChanged(object sender, EventArgs e)
@@ -113,12 +99,25 @@ namespace GUI.CustomControls
             }).Start();
         }
 
+        private void AssignFormStyles()
+        {
+            ForeColor = Color.Black;
+            BackColor = Color.White;
+            Font = new Font("Tahoma", 9.75F, FontStyle.Regular);
+            ControlFont = new Font("Tahoma", 9.75F, FontStyle.Bold);
+            foreach (Control c in this.Controls)
+            {
+                AssignControlStylesRecursive(c);
+            }
+        }
+
         public void AssignControlStylesRecursive(Control control)
         {
             Label lbl = control as Label;
             if (lbl != null)
             {
                 lbl.BackColor = Color.Transparent;
+                lbl.Font = ControlFont;
                 return;
             }
 
@@ -126,7 +125,7 @@ namespace GUI.CustomControls
             ComboBox cbo = control as ComboBox;
             if (txt != null || cbo != null)
             {
-                control.ForeColor = Color.FromArgb(76, 116, 164);
+                control.ForeColor = Color.Black;
                 return;
             }
 

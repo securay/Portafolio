@@ -275,7 +275,7 @@ namespace GUI.CustomControls
                 }
                 catch (System.Data.Entity.Core.EntityCommandExecutionException ex)
                 {
-                    MessageBox.Show(ex.Message, "Cupomatico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Custom", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

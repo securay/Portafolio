@@ -168,7 +168,8 @@ namespace GUI.View.ServiceOrderView
             CodeTextBox.Text = ServiceOrder.Code;
             if (ServiceOrder.Customer != null)
             {
-                CustomerComboBox.Text = ServiceOrder.Customer.Name;
+                CustomerComboBox.QueryText = ServiceOrder.Customer.Name;
+                CustomerComboBox.FillComboBox();
                 CustomerComboBox.SelectedItem = ServiceOrder.Customer;
             }
         }

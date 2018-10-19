@@ -36,5 +36,9 @@ namespace Entity.Auth
         public virtual Position Position { get; set; }
         [NotMapped]
         public String FullName { get { return (PaternalSurname.Trim() + " " + MaternalSurname.Trim() + ", " + PersonName).Trim(); } }
+        public override string ToString()
+        {
+            return FullName;
+        }
     }
 }

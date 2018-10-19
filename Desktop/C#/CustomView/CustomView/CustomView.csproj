@@ -11,6 +11,22 @@
     <AssemblyName>CustomView</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +50,18 @@
   <PropertyGroup>
     <ApplicationIcon>lighthouse.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>19FBF5520125405C37CFE6236EFAB0C52442C284</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>CustomView_ClaveTemporal.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
@@ -51,6 +79,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -72,6 +101,7 @@
     <Compile Include="Entity\Auth\DependencyLevel.cs" />
     <Compile Include="Entity\Auth\DocumentType.cs" />
     <Compile Include="Entity\Auth\Employee.cs" />
+    <Compile Include="Entity\Auth\Extra\EmployeeRow.cs" />
     <Compile Include="Entity\Auth\Extra\SystemUserRow.cs" />
     <Compile Include="Entity\Auth\FormEntity.cs" />
     <Compile Include="Entity\Auth\Position.cs" />
@@ -89,6 +119,36 @@
     <Compile Include="Entity\Coolers\MeasureUnit.cs" />
     <Compile Include="Entity\Coolers\Customer.cs" />
     <Compile Include="Entity\Exceptions\DuplicatedExceptionResult.cs" />
+    <Compile Include="GUI\Auth\EmployeeView\EmployeeListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Auth\EmployeeView\EmployeeListForm.designer.cs">
+      <DependentUpon>EmployeeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Auth\PermissionsView\PermissionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Auth\PermissionsView\PermissionsForm.designer.cs">
+      <DependentUpon>PermissionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Auth\SystemUserView\SystemUserChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Auth\SystemUserView\SystemUserChangePasswordForm.designer.cs">
+      <DependentUpon>SystemUserChangePasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Auth\SystemUserView\SystemUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Auth\SystemUserView\SystemUserForm.designer.cs">
+      <DependentUpon>SystemUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Auth\SystemUserView\SystemUserListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Auth\SystemUserView\SystemUserListForm.designer.cs">
+      <DependentUpon>SystemUserListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\CustomControls\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +167,7 @@
     <Compile Include="GUI\CustomControls\ComboBoxWaterMark.Designer.cs">
       <DependentUpon>ComboBoxWaterMark.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\CustomControls\DataGridViewCheckBoxColumnHeaderCell.cs" />
     <Compile Include="GUI\CustomControls\ExportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +231,12 @@
     <Compile Include="GUI\View\CustomerView\CustomerListForm.Designer.cs">
       <DependentUpon>CustomerListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Auth\EmployeeView\EmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Auth\EmployeeView\EmployeeForm.designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\View\ServiceOrderDetailView\ServiceOrderDetailListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,11 +257,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Auth\PositionRepository.cs" />
+    <Compile Include="Repository\Auth\DependencyRepository.cs" />
+    <Compile Include="Repository\Auth\DocumentTypeRepository.cs" />
     <Compile Include="Repository\Auth\SystemMenuRepository.cs" />
     <Compile Include="Repository\Auth\SystemUserMenuPermissionRepository.cs" />
     <Compile Include="Repository\Auth\SystemUserRepository.cs" />
     <Compile Include="Repository\BaseRepository.cs" />
     <Compile Include="Repository\Coolers\ServiceOrderDetailRepository.cs" />
+    <Compile Include="Repository\Auth\EmployeeRepository.cs" />
     <Compile Include="Repository\Coolers\ServiceOrderRepository.cs" />
     <Compile Include="Repository\Coolers\CustomerRepository.cs" />
     <Compile Include="Repository\Coolers\CoolerRepository.cs" />
@@ -205,6 +276,7 @@
     <Compile Include="Util\Extensions.cs" />
     <Compile Include="Util\ILoadData.cs" />
     <Compile Include="Util\Logger.cs" />
+    <Compile Include="Util\MailUtil.cs" />
     <Compile Include="Util\MessageUtil.cs" />
     <Compile Include="Util\NetworkUtil.cs" />
     <Compile Include="Util\OnlyDecimalNumbers.cs" />
@@ -212,6 +284,21 @@
     <Compile Include="Util\PasswordUtil.cs" />
     <Compile Include="Util\SHA1Util.cs" />
     <Compile Include="Util\WindowUtil.cs" />
+    <EmbeddedResource Include="GUI\Auth\EmployeeView\EmployeeListForm.resx">
+      <DependentUpon>EmployeeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Auth\PermissionsView\PermissionsForm.resx">
+      <DependentUpon>PermissionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Auth\SystemUserView\SystemUserChangePasswordForm.resx">
+      <DependentUpon>SystemUserChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Auth\SystemUserView\SystemUserForm.resx">
+      <DependentUpon>SystemUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Auth\SystemUserView\SystemUserListForm.resx">
+      <DependentUpon>SystemUserListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\CustomControls\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,6 +335,9 @@
     <EmbeddedResource Include="GUI\View\CustomerView\CustomerListForm.resx">
       <DependentUpon>CustomerListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Auth\EmployeeView\EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\View\ServiceOrderDetailView\ServiceOrderDetailListForm.resx">
       <DependentUpon>ServiceOrderDetailListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -267,6 +357,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="App.config" />
+    <None Include="CustomView_ClaveTemporal.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -286,6 +377,23 @@
     <Content Include="Message\Info.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

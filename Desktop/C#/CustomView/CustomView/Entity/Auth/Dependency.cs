@@ -20,5 +20,10 @@ namespace Entity.Auth
         public String Name { get; set; }
         [MaxLength(20)]
         public String Acronym { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

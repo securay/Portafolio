@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Migrations;
-using System.Linq;
-using System.Text;
+﻿using System.Data.Entity.Migrations;
 
 namespace Context
 {
@@ -11,11 +7,8 @@ namespace Context
         public ApplicationConfiguration()
             : base()
         {
-            #if DEBUG
-            //System.Windows.Forms.MessageBox.Show("DEBUG");
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
-            #endif
+            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationDataLossAllowed = false;
         }
 
         protected override void Seed(ApplicationContext context)

@@ -8,5 +8,6 @@ namespace Util
         public static String GlobalActivateConfirm = "¿Está seguro de reactivar el registro '{0}'?";
         public static String GlobalSelectRow = "Seleccione un registro.";
         public static String GlobalRecordSaved = "Registro guardado correctamente.";
+        public static String GlobalResetPassword = "¿Está seguro de resetear la contraseña?";
     }
 }

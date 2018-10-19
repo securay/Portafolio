@@ -23,6 +23,7 @@ namespace Repository.Auth
         {
             var result = from su in ApplicationContext.SystemMenus
                          where su.Active == Active 
+                         orderby su.Caption
                          select su;
             return result;
         }
