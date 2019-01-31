@@ -164,7 +164,7 @@
             this.ClientSize = new System.Drawing.Size(731, 533);
             this.Controls.Add(this.MainLayoutPanel);
             this.Name = "StoredProductForm";
-            this.Text = "INGRESO";
+            this.Text = "Ingreso";
             this.Controls.SetChildIndex(this.ButtonsPanel, 0);
             this.Controls.SetChildIndex(this.MainLayoutPanel, 0);
             this.ButtonsPanel.ResumeLayout(false);

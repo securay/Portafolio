@@ -34,6 +34,9 @@ namespace ProductStock.Views
             StoreComboBox.ComboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
             LoadStores(StoreRepository);
 
+            SearchTextBox.Visible = true;
+            SearchTextBox.TextBox.KeyPress += TextBox_KeyPress;
+
             AddButton.Click += AddButton_Click;
 
             Titles.Add("ProductName", "PRODUCTO");
@@ -45,6 +48,11 @@ namespace ProductStock.Views
             Titles.Add("Store", "ALMACEN");
             Titles.Add("CurrentProduct", "LISTO");
 
+            LoadStoredProducts();
+        }
+
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
             LoadStoredProducts();
         }
 
@@ -65,7 +73,9 @@ namespace ProductStock.Views
         {
             if (StoreComboBox.ComboBox.SelectedItem != null)
             {
-                Grid.DataSource = StoredProductRepository.GetByStoreAndName(StoreComboBox.ComboBox.SelectedItem as Store, "").ToList();
+                Grid.DataSource = StoredProductRepository.GetByStoreAndName(
+                    StoreComboBox.ComboBox.SelectedItem as Store, 
+                    SearchTextBox.Text).ToList();
 
                 HideAuditColumns();
             }

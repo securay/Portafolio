@@ -34,6 +34,7 @@
             this.EditButton = new System.Windows.Forms.ToolStripButton();
             this.DeleteButton = new System.Windows.Forms.ToolStripButton();
             this.StoreComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.SearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.Grid = new System.Windows.Forms.DataGridView();
             this.MainToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid)).BeginInit();
@@ -46,7 +47,8 @@
             this.AddButton,
             this.EditButton,
             this.DeleteButton,
-            this.StoreComboBox});
+            this.StoreComboBox,
+            this.SearchTextBox});
             this.MainToolStrip.Location = new System.Drawing.Point(0, 0);
             this.MainToolStrip.Name = "MainToolStrip";
             this.MainToolStrip.Size = new System.Drawing.Size(684, 36);
@@ -90,6 +92,12 @@
             this.StoreComboBox.Size = new System.Drawing.Size(200, 36);
             this.StoreComboBox.Visible = false;
             // 
+            // SearchTextBox
+            // 
+            this.SearchTextBox.Name = "SearchTextBox";
+            this.SearchTextBox.Size = new System.Drawing.Size(200, 36);
+            this.SearchTextBox.Visible = false;
+            // 
             // Grid
             // 
             this.Grid.AllowUserToAddRows = false;
@@ -129,5 +137,6 @@
         public System.Windows.Forms.ToolStripButton DeleteButton;
         public System.Windows.Forms.DataGridView Grid;
         public System.Windows.Forms.ToolStripComboBox StoreComboBox;
+        public System.Windows.Forms.ToolStripTextBox SearchTextBox;
     }
 }
