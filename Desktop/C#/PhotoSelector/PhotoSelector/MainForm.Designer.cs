@@ -164,6 +164,7 @@
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(81, 17);
             this.StatusLabel.Text = "PhotoSelector";
+            this.StatusLabel.Click += new System.EventHandler(this.StatusLabel_Click);
             // 
             // SplitLabel
             // 

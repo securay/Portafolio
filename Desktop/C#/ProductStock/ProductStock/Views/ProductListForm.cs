@@ -1,6 +1,5 @@
 ﻿using ProductStock.CustomControls;
 using Repository;
-using System;
 using System.Linq;
 
 namespace ProductStock.Views
@@ -20,8 +19,17 @@ namespace ProductStock.Views
 
         private void Init()
         {
-            LoadProducts();
             AddButton.Click += AddButton_Click;
+
+            Titles.Add("ProductName", "PRODUCTO");
+            Titles.Add("ProductCode", "CODIGO");
+            Titles.Add("SunatProductCode", "CODIGO SUNAT");
+            Titles.Add("Perecible", "PERECIBLE");
+            Titles.Add("MinStock", "STOCK MIN");
+            Titles.Add("NominalValue", "PRECIO REFERENCIAL");
+            Titles.Add("AddOnElectronicDocument", "DOC. ELECTRONICO");
+
+            LoadProducts();
         }
 
         private void AddButton_Click(object sender, System.EventArgs e)

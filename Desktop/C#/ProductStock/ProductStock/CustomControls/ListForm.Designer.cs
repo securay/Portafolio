@@ -33,8 +33,8 @@
             this.AddButton = new System.Windows.Forms.ToolStripButton();
             this.EditButton = new System.Windows.Forms.ToolStripButton();
             this.DeleteButton = new System.Windows.Forms.ToolStripButton();
-            this.Grid = new System.Windows.Forms.DataGridView();
             this.StoreComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.Grid = new System.Windows.Forms.DataGridView();
             this.MainToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid)).BeginInit();
             this.SuspendLayout();
@@ -83,6 +83,13 @@
             this.DeleteButton.Size = new System.Drawing.Size(33, 33);
             this.DeleteButton.Text = "Eliminar";
             // 
+            // StoreComboBox
+            // 
+            this.StoreComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.StoreComboBox.Name = "StoreComboBox";
+            this.StoreComboBox.Size = new System.Drawing.Size(200, 36);
+            this.StoreComboBox.Visible = false;
+            // 
             // Grid
             // 
             this.Grid.AllowUserToAddRows = false;
@@ -96,13 +103,6 @@
             this.Grid.Size = new System.Drawing.Size(684, 375);
             this.Grid.TabIndex = 1;
             // 
-            // StoreComboBox
-            // 
-            this.StoreComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.StoreComboBox.Name = "StoreComboBox";
-            this.StoreComboBox.Size = new System.Drawing.Size(200, 36);
-            this.StoreComboBox.Visible = false;
-            // 
             // ListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -111,6 +111,7 @@
             this.Controls.Add(this.Grid);
             this.Controls.Add(this.MainToolStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ListForm";
             this.Text = "ListForm";
             this.MainToolStrip.ResumeLayout(false);

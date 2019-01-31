@@ -87,9 +87,12 @@ namespace PhotoSelector
             StatusLabel.Text = String.Format("{0} imagenes en cola.", SourceFiles.Count);
         }
 
-        private void MoveNext()
+        private void MoveNext(bool moved = false)
         {
-            LastFiles.AddFirst(SourceFiles.First.Value);
+            if (!moved)
+            {
+                LastFiles.AddFirst(SourceFiles.First.Value);
+            }
             SourceFiles.RemoveFirst();
             if (SourceFiles.Count > 0)
             {
@@ -140,7 +143,7 @@ namespace PhotoSelector
                 {
                     File.Move(SourceFiles.First.Value, target);
                 }
-                MoveNext();
+                MoveNext(true);
             }
             catch(Exception ex)
             {
@@ -194,7 +197,9 @@ namespace PhotoSelector
                 "• Seleccione como origen el directorio que contiene las imagenes que quiere clasificar.\n" +
                 "• Seleccione como destino el directorio que contendrá las imagenes seleccionadas.\n" +
                 "• Para mover la imagen actual al directorio de destino presione flecha arriba.\n" +
-                "• Para avanzar a la siguiente imagen presione flecha a la derecha.\n" +
+                "• Para ver la siguiente imagen presione flecha a la derecha.\n" +
+                "• Para ver la imagen anterior presione flecha a la izquierda.\n" +
+                "• Active el check de solo copiar si desea conservar la imagen que se movará.\n" +
                 "• Si ya existe una imagen con el mismo nombre en el destino se consultará para renombrarla automaticamente.", 
                 "PhotoSelector", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -203,6 +208,24 @@ namespace PhotoSelector
         {
             JustCopy = !JustCopy;
             SplitLabel.Image = JustCopy ? CheckedLabel.Image : UncheckedLabel.Image;
+        }
+
+        private void StatusLabel_Click(object sender, EventArgs e)
+        {
+            int position = SourceFiles.Count - new InputBox(Text, "Ingrese la posición a la que quiere ir", 1, SourceFiles.Count).ShowInputDialog();
+            if(position < SourceFiles.Count)
+            {
+                for(int i = 0; i <= position - 1; i++)
+                {
+                    LastFiles.AddFirst(SourceFiles.First.Value);
+                    SourceFiles.RemoveFirst();
+                }
+                MoveNext();
+            }
+            else
+            {
+                MessageBox.Show("Se ingresó una cantidad inválida.", Text, MessageBoxButtons.OK);
+            }
         }
     }
 }

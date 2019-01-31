@@ -16,7 +16,9 @@ namespace ProductStock
             InitializeComponent();
 
             this.Context = Context;
-            Util.WindowUtil.AssignMouseDown(this.Handle, TopPanel);
+            Util.WindowUtil.AssignMouseDown(Handle, TopPanel);
+
+            WindowState = FormWindowState.Maximized;
         }
 
         private void LoadListForm(ListForm ListForm)

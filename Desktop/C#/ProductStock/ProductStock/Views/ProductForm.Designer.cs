@@ -36,8 +36,18 @@
             this.ElectronicDocumentCheckBox = new System.Windows.Forms.CheckBox();
             this.MinStockTextBox = new GUI.CustomControls.WaterMarkTextBox();
             this.PriceTextBox = new GUI.CustomControls.WaterMarkTextBox();
+            this.ButtonsPanel.SuspendLayout();
             this.MainLayoutPanel.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.Location = new System.Drawing.Point(202, 3);
+            // 
+            // ButtonsPanel
+            // 
+            this.ButtonsPanel.Location = new System.Drawing.Point(0, 261);
+            this.ButtonsPanel.Size = new System.Drawing.Size(324, 50);
             // 
             // MainLayoutPanel
             // 
@@ -171,9 +181,10 @@
             this.ClientSize = new System.Drawing.Size(324, 311);
             this.Controls.Add(this.MainLayoutPanel);
             this.Name = "ProductForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Producto";
+            this.Text = "PRODUCTO";
+            this.Controls.SetChildIndex(this.ButtonsPanel, 0);
             this.Controls.SetChildIndex(this.MainLayoutPanel, 0);
+            this.ButtonsPanel.ResumeLayout(false);
             this.MainLayoutPanel.ResumeLayout(false);
             this.MainLayoutPanel.PerformLayout();
             this.ResumeLayout(false);

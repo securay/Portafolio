@@ -36,13 +36,19 @@
             this.PartNumberTextBox = new GUI.CustomControls.WaterMarkTextBox();
             this.Grid = new System.Windows.Forms.DataGridView();
             this.PartSerialTextBox = new GUI.CustomControls.WaterMarkTextBox();
+            this.ButtonsPanel.SuspendLayout();
             this.MainLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid)).BeginInit();
             this.SuspendLayout();
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(609, 3);
+            this.SaveButton.Location = new System.Drawing.Point(1056, 3);
+            // 
+            // ButtonsPanel
+            // 
+            this.ButtonsPanel.Location = new System.Drawing.Point(0, 483);
+            this.ButtonsPanel.Size = new System.Drawing.Size(731, 50);
             // 
             // MainLayoutPanel
             // 
@@ -158,8 +164,10 @@
             this.ClientSize = new System.Drawing.Size(731, 533);
             this.Controls.Add(this.MainLayoutPanel);
             this.Name = "StoredProductForm";
-            this.Text = "Ingreso";
+            this.Text = "INGRESO";
+            this.Controls.SetChildIndex(this.ButtonsPanel, 0);
             this.Controls.SetChildIndex(this.MainLayoutPanel, 0);
+            this.ButtonsPanel.ResumeLayout(false);
             this.MainLayoutPanel.ResumeLayout(false);
             this.MainLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid)).EndInit();

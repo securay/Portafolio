@@ -3,12 +3,7 @@ using Entity;
 using ProductStock.CustomControls;
 using Repository;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ProductStock.Views
@@ -40,6 +35,15 @@ namespace ProductStock.Views
             LoadStores(StoreRepository);
 
             AddButton.Click += AddButton_Click;
+
+            Titles.Add("ProductName", "PRODUCTO");
+            Titles.Add("ProductCode", "CÓDIGO");
+            Titles.Add("SerialNumber", "SERIE");
+            Titles.Add("Buyed", "COMPRADOS");
+            Titles.Add("Stock", "STOCK");
+            Titles.Add("Price", "PRECIO");
+            Titles.Add("Store", "ALMACEN");
+            Titles.Add("CurrentProduct", "LISTO");
 
             LoadStoredProducts();
         }
