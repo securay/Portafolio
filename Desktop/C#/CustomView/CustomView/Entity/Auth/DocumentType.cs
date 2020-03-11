@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entity.Auth
 {
-    [Table("Auth.DocumentTypes")]
+    //[Table("Auth.DocumentTypes")]
+    [Table("DocumentTypes")]
     public class DocumentType : BaseEntity<Guid>
     {
         [Key]

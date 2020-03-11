@@ -27,6 +27,7 @@ namespace Repository
                           Buyed = sp.Buyed,
                           Stock = sp.Stock,
                           ProductName = sp.Product.Name,
+                          ProductCode = sp.Product.Code,
                           SerialNumber = sp.SerialNumber
                       };
             return res;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entity.Auth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -17,7 +18,7 @@ namespace GUI.Start
                                             CustomView.Program.Security.Session.User.Username.ToUpper(),
                                             CustomView.Program.Security.Session.User.Employee.FullName.ToUpper());
             LastConnectionLabel.Text = CustomView.Program.Security.Session.User.LastAccess.Value.ToString("dd/MM/yyyy HH:mm");
-
+            //AddMenues();
             LoadPermissions();
         }
 
@@ -66,14 +67,57 @@ namespace GUI.Start
                     if (Control is CustomView.GUI.CustomControls.MenuButton)
                     {
                         CurrentMenuButton = (CustomView.GUI.CustomControls.MenuButton)Control;
+                        Util.Logger.Log(CurrentMenuButton.EntityName, Util.Logger.INFO);
                         Menus.Add(CurrentMenuButton.EntityName, CurrentMenuButton);
                     }
                 }
                 foreach (var Permission in Permissions)
                 {
-                    if(Menus.ContainsKey(Permission.SystemMenu.Name))
+                    if (Menus.ContainsKey(Permission.SystemMenu.Name))
                     {
+                        Util.Logger.Log(Permission.Active.ToString(), Util.Logger.INFO);
                         Menus[Permission.SystemMenu.Name].Enabled = Permission.Allow;
+                    }
+                }
+            }
+        }
+
+        private void AddMenues()
+        {
+            using (var SystemUserRepository = new Repository.Auth.SystemUserRepository())
+            using (var SystemMenuRepository = new Repository.Auth.SystemMenuRepository())
+            using (var SystemUserMenuPermissionRepository = new Repository.Auth.SystemUserMenuPermissionRepository())
+            {
+                CustomView.GUI.CustomControls.MenuButton CurrentMenuButton;
+                var SA = SystemUserRepository.GetByName("sa");
+                foreach (var Control in MenuPanel.Controls)
+                {
+                    if (Control is CustomView.GUI.CustomControls.MenuButton)
+                    {
+                        CurrentMenuButton = (CustomView.GUI.CustomControls.MenuButton)Control;
+                        if (SystemMenuRepository.GetByName(CurrentMenuButton.EntityName) == null)
+                        {
+                            var SystemMenu = new SystemMenu()
+                            {
+                                Caption = CurrentMenuButton.Text,
+                                Name = CurrentMenuButton.EntityName
+                            };
+                            SystemMenuRepository.SaveAndFlush(SystemMenu);
+                            var SystemUserMenuPermission = new SystemUserMenuPermission()
+                            {
+                                Activate = true,
+                                Allow = true,
+                                Delete = true,
+                                Export = true,
+                                Extras = true,
+                                Insert = true,
+                                List = true,
+                                Update = true,
+                                SystemMenu = SystemMenu,
+                                SystemUser = SA
+                            };
+                            SystemUserMenuPermissionRepository.SaveAndFlush(SystemUserMenuPermission);
+                        }
                     }
                 }
             }

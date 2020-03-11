@@ -120,19 +120,19 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ChangePasswordButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAJ4SURBVGhD7dnLq01hHMbxjVzKrUhyCQPFRAZGkolyGSgD
-        E6SEcokimZijKP4CAxOXMlEYGjBwKZeB5DKSAeWecr9+v1m/elutwz5nZ71r13rq0zn73Wuf/axz3rX2
-        Wu/ptGnTJntGYy0O4wg2YCL6IpvxDr9KvuIMJqGx2Ypy8bKnWILGZQV+IIq+wEaswXG8Rjz3HnPRmFj+
-        M6LgN0xHGh9fQWxzCx4r2VMur2uILMMBTME4PEJstwlZUy7/s/hqyWGw8Mdi7C5GwB2K7c8jW1YiLX8J
-        6RRZhOF4WDz2+BhbjD0rxj7Bnao9VeXHYHcydhvO8dk4Cj8XIncQ2/lXqjUDlTf+hh8gfW4y0kxFTKu3
-        cKrVlr+VjyxEuo3T5RCWYx0sHc+dQm3ppnxkFV4itq3iMTEPtcRC3ZaPeN6/gDgzpRzbg1oylPJpPIjv
-        IV7vNdFq1JJey7utr4nX+7P8mbWk1/KeQtvyQ0lbHm35waavy3tN7rm5l/IXkaX8DsQb9135xUjvYb2K
-        7JvyI3Ef8eZf4C1ft8la3mxHvLkGc2uXvby5inQHLqObNKL8DMQlbpx9vuNfU8jyXh5nLW+8Do8SN5Lv
-        z2Gg27vGlDeu2UQR77LeJI+PwQM8jWcmp1hsk7X8LESRx/A37tJfjMnVhC1YAHfwFeK5rOXNNkQZl74j
-        u5B+GlfxuMla3pxGFFrqQBIXotIlkZTl9yFrnC7PYaEPGAXjuEshB+G0Kpd3Dcdplj3zEaWuYz1O4Ekx
-        VuUspqER2YmqkmXu3F7MRKNyElWF/RCz9H64BNLYxPWPV6A34T/fPKuMR99kDib8+bZNmzZt/ks6nd9r
-        T10cDjKz+QAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAnhJREFUaEPt2curTWEcxvGNXMqtSHIJA8VEBkaSiXIZKAMTpIRyiSKZmKMo/gID
+        E5cyURgaMHApl4HkMpIB5Z5yv36/Wb96W63DPmdnvWvXeurTOfvda5/9rHPetfZa7+m0adMme0ZjLQ7j
+        CDZgIvoim/EOv0q+4gwmobHZinLxsqdYgsZlBX4gir7ARqzBcbxGPPcec9GYWP4zouA3TEcaH19BbHML
+        HivZUy6va4gswwFMwTg8Qmy3CVlTLv+z+GrJYbDwx2LsLkbAHYrtzyNbViItfwnpFFmE4XhYPPb4GFuM
+        PSvGPsGdqj1V5cdgdzJ2G87x2TgKPxcidxDb+VeqNQOVN/6GHyB9bjLSTEVMq7dwqtWWv5WPLES6jdPl
+        EJZjHSwdz51CbemmfGQVXiK2reIxMQ+1xELdlo943r+AODOlHNuDWjKU8mk8iO8hXu810WrUkl7Lu62v
+        idf7s/yZtaTX8p5C2/JDSVsebfnBpq/Le03uubmX8heRpfwOxBv3XfnFSO9hvYrsm/IjcR/x5l/gLV+3
+        yVrebEe8uQZza5e9vLmKdAcuo5s0ovwMxCVunH2+419TyPJeHmctb7wOjxI3ku/PYaDbu8aUN67ZRBHv
+        st4kj4/BAzyNZyanWGyTtfwsRJHH8Dfu0l+MydWELVgAd/AV4rms5c02RBmXviO7kH4aV/G4yVrenEYU
+        WupAEhei0iWRlOX3IWucLs9hoQ8YBeO4SyEH4bQql3cNx2mWPfMRpa5jPU7gSTFW5SymoRHZiaqSZe7c
+        XsxEo3ISVYX9ELP0frgE0tjE9Y9XoDfhP988q4xH32QOJvz5tk2bNm3+Szqd32tPXRwOMrP5AAAAAElF
+        TkSuQmCC
 </value>
   </data>
   <data name="PermissionsButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

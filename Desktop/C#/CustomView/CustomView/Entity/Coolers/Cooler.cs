@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entity.Coolers
 {
-    [Table("Coolers.Coolers")]
+    //[Table("Coolers.Coolers")]
+    [Table("Coolers")]
     public class Cooler : BaseEntity<Guid>
     {
         [Key]

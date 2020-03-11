@@ -55,7 +55,7 @@ namespace Context
         {
             try
             {
-                return Database.SqlQuery(typeof(DateTime), "SELECT GETDATE()", new object[] { }).Cast<DateTime>().First();
+                return Database.SqlQuery(typeof(DateTime), "SELECT NOW()", new object[] { }).Cast<DateTime>().First();
             }
             catch (System.Data.Entity.Migrations.Infrastructure.AutomaticMigrationsDisabledException ex)
             {

@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entity.Auth
 {
-    [Table("Auth.SystemUsers")]
+    //[Table("Auth.SystemUsers")]
+    [Table("SystemUsers")]
     public class SystemUser : BaseEntity<Guid>
     {
         [Key]
@@ -20,12 +21,12 @@ namespace Entity.Auth
         public virtual Employee Employee { get; set; }
         public Boolean Enabled { get; set; }
         public Boolean MultiSession { get; set; }
-        [Column(TypeName = "DateTime2")]
+        //[Column(TypeName = "DateTime2")]
         public DateTime? LastAccess { get; set; }
         public Boolean UserExpires { get; set; }
-        [Column(TypeName = "DateTime2")]
+        //[Column(TypeName = "DateTime2")]
         public DateTime? ExpirationDate { get; set; }
-        [Column(TypeName = "DateTime2")]
+        //[Column(TypeName = "DateTime2")]
         public DateTime? UnLockTime { get; set; }
         public int LoginFailures { get; set; }
 

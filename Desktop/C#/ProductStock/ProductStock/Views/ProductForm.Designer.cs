@@ -42,7 +42,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(202, 3);
+            this.SaveButton.Location = new System.Drawing.Point(282, 3);
             // 
             // ButtonsPanel
             // 

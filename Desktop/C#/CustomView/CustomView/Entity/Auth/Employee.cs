@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entity.Auth
 {
-    [Table("Auth.Employees")]
+    //[Table("Auth.Employees")]
+    [Table("Employees")]
     public class Employee : BaseEntity<Guid>
     {
         [Key]

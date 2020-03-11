@@ -7,8 +7,9 @@ namespace Context
         public ApplicationConfiguration()
             : base()
         {
-            AutomaticMigrationsEnabled = false;
-            AutomaticMigrationDataLossAllowed = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
+            // SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.EntityFramework.MySqlMigrationSqlGenerator());
         }
 
         protected override void Seed(ApplicationContext context)

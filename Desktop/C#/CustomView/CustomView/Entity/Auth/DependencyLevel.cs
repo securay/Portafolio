@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entity.Auth
 {
-    [Table("Auth.DependencyLevels")]
+    //[Table("Auth.DependencyLevels")]
+    [Table("DependencyLevels")]
     public class DependencyLevel : BaseEntity<Guid>
     {
         [Key]

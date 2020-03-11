@@ -74,6 +74,9 @@ namespace ProductStock.Views
                     };
                     ComponentRepository.SaveAndFlush(component);
                     FillComponents();
+                    PartSerialTextBox.Text = "";
+                    PartNumberTextBox.Text = "";
+                    PartNumberTextBox.Focus();
                 }
             }
         }

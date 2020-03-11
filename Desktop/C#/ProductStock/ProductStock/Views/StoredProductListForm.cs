@@ -53,7 +53,10 @@ namespace ProductStock.Views
 
         private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            LoadStoredProducts();
+            if (e.KeyChar == (char)13)
+            {
+                LoadStoredProducts();
+            }
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -76,7 +79,7 @@ namespace ProductStock.Views
                 Grid.DataSource = StoredProductRepository.GetByStoreAndName(
                     StoreComboBox.ComboBox.SelectedItem as Store, 
                     SearchTextBox.Text).ToList();
-
+                Console.WriteLine(string.Format("{0}: {1}", (StoreComboBox.ComboBox.SelectedItem as Store).Name, SearchTextBox.Text));
                 HideAuditColumns();
             }
         }

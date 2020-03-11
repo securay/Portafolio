@@ -26,10 +26,10 @@ namespace Repository
         public IQueryable<StoredProductRow> GetByStoreAndName(Store Store, string Name)
         {
             var res = from sp in Context.StoredProducts
-                      where sp.Active && sp.CurrentProduct &&
+                      where sp.Active && 
                       sp.StoreId == Store.Id &&
                       sp.Product.Active && 
-                      (sp.Product.Code + sp.Product.Name).Contains(Name)
+                      (sp.Product.Code + sp.Product.Name + sp.SerialNumber).Contains(Name)
                       select new StoredProductRow()
                       {
                           Active = sp.Active,
@@ -37,9 +37,11 @@ namespace Repository
                           CurrentProduct = sp.CurrentProduct,
                           Id = sp.Id,
                           ProductName = sp.Product.Name,
+                          ProductCode = sp.Product.Code,
                           SerialNumber = sp.SerialNumber,
                           Stock = sp.Stock,
-                          Store = sp.Store.Name
+                          Store = sp.Store.Name,
+                          Price = "" + sp.Price
                       };
             return res;
         }
